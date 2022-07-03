@@ -1,3 +1,26 @@
 <form [formGroup]="categoryForm" (ngSubmit)="onSubmit">
-
+  <div>
+    <label>Category</label>
+    <input formControlName="category" />
+    <!-- <div>Error pertaining to category: {{ categoryForm.controls.category.errors | json }}</div> -->
+    <ng-container
+      *ngIf="
+        categoryForm.controls.category.touched &&
+        categoryForm.controls.category.errors">
+        <div *ngIf="categoryForm.controls.category.errors.required">Value is required</div>
+        <div *ngIf="categoryForm.controls.category.errors.minlength">Minimum length of 5 characters is required</div>
+    </ng-container>
+  </div>
+<hr>
+  <div>
+    <label>Amount</label>
+    <input formControlName="amount" />
+    <div>Error pertaining to amount: {{ categoryForm.controls.amount.errors | json }}</div>
+  </div>
 </form>
+
+<hr>
+<div>Form Contents: {{ categoryForm.value | json }}</div>
+<br>
+<div>Form Contents valid: {{ categoryForm.valid }}</div>
+
