@@ -22,7 +22,8 @@ export class CategoriesFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.categoryForm)
-  }
+    console.log('form was submitted')
+    this.categoryForm.reset()
+  };
 
 }
