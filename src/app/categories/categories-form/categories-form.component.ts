@@ -7,13 +7,19 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./categories-form.component.css']
 })
 export class CategoriesFormComponent implements OnInit {
-  categoryForm = new FormGroup({
-    category: new FormControl('')
-  });
+
+  categoryForm: FormGroup;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void{
+    this.categoryForm = new FormGroup({
+      'category': new FormControl('')
+    });
+  }
+
+  onSubmit(){
+    console.log(this.categoryForm)
   }
 
 }
