@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'VW';
+  categories = [
+    { category: 'fuel', amount: 100 },
+    { category: 'food', amount: 500 },
+    { category: 'fun', amount: 200 },
+  ];
 }
