@@ -1,9 +1,16 @@
 <app-navbar></app-navbar>
 
+<app-card
+  *ngFor="let category of categories"
+  [category]="category.category"
+  [amount]="category.amount"
+></app-card>
 
-<div class="ui segment">
+<app-categories></app-categories>
+
+<!-- <div class="ui segment">
   <router-outlet></router-outlet>
-</div>
+</div> -->
 
 
 
