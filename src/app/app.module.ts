@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './card/card.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { TransactionsComponent } from './transactions/transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CategoriesComponent } from './categories/categories.component';
     NotFoundComponent,
     NavbarComponent,
     CardComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,

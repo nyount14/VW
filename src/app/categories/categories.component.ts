@@ -7,7 +7,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-
+  categories = [
+    { category: 'fuel', amount: 100 },
+    { category: 'food', amount: 500 },
+    { category: 'fun', amount: 200 },
+  ];
   categoryForm: FormGroup;
 
   constructor() {
@@ -23,6 +27,7 @@ export class CategoriesComponent implements OnInit {
 
   onSubmit(){
     console.log('form was submitted')
+    this.categories.push(this.categoryForm)
     this.categoryForm.reset()
   };
 
