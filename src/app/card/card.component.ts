@@ -7,7 +7,7 @@ import { Category } from '../models/category.model';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() category: {category: string, amount: number};
+  @Input() category: Category;
 
   constructor() { }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Category } from './models/category.model';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,8 @@ export class AppComponent {
     { category: 'fun', amount: 200 },
   ];
 
-  onCategoryAdded(categoryData: {category: string, amount: number}) {
-    this.categories.push({
-      category: categoryData.category,
-      amount: categoryData.amount
-    });
+  onCategoryAdded(categoryData: Category) {
+    this.categories.push(categoryData);
   }
 
 }

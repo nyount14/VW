@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormsModule, NgModel } from '@angular/forms';
+import { Category } from '../models/category.model';
 
 @Component({
   selector: 'app-categories',
@@ -10,7 +11,7 @@ import { FormsModule, NgModel } from '@angular/forms';
 export class CategoriesComponent implements OnInit {
 
   // categoryForm: FormGroup;
-  @Output() categoryCreated = new EventEmitter<{category: string, amount: number}>();
+  @Output() categoryCreated = new EventEmitter<Category>();
   newCategory: string;
   newAmount: number;
 
