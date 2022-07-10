@@ -1,14 +1,11 @@
-<app-card
-  *ngFor="let category of categories"
-  [category]="category"
-></app-card>
+
 
 
   <label>Category</label>
   <input
     type="text"
     class="form-control"
-    [(ngModel)] ="category"
+    [(ngModel)] ="newCategory"
     name="category"
   />
 
@@ -16,11 +13,11 @@
   <input
     type="text"
     class="form-control"
-    [(ngModel)] ="amount"
+    [(ngModel)] ="newAmount"
     name="amount"
   />
 
-<button (click)="onAdd">Add Category</button>
+<button (click)="onAddCategory">Add Category</button>
 
 
 <!-- <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">

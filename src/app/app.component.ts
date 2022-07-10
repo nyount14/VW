@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  categories = [
+    { category: 'fuel', amount: 100 },
+    { category: 'food', amount: 500 },
+    { category: 'fun', amount: 200 },
+  ];
+
+  onCategoryAdded(categoryData: {category: string, amount: number}) {
+    this.categories.push({
+      category: categoryData.category,
+      amount: categoryData.amount
+    });
+  }
+
 }

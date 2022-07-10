@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormsModule, NgModel } from '@angular/forms';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-categories',
@@ -9,14 +8,11 @@ import { stringify } from 'querystring';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  categories = [
-    { category: 'fuel', amount: 100 },
-    { category: 'food', amount: 500 },
-    { category: 'fun', amount: 200 },
-  ];
+
   // categoryForm: FormGroup;
-  category: string;
-  amount: number;
+  @Output() categoryCreated = new EventEmitter<{category: string, amount: number}>();
+  newCategory: string;
+  newAmount: number;
 
   constructor() {
     console.log()
@@ -35,10 +31,10 @@ export class CategoriesComponent implements OnInit {
     // this.categoryForm.reset()
   };
 
-  onAdd(){
-    this.categories.push({
-      category: this.category,
-      amount: this.amount
+  onAddCategory(){
+    this.categoryCreated.emit({
+      category: this.newCategory,
+      amount: this.newAmount
     });
 
   }
