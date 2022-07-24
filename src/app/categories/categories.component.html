@@ -5,7 +5,7 @@
   <input
     type="text"
     class="form-control"
-    [(ngModel)] ="newCategory"
+    [(ngModel)] ="category"
     name="category"
   />
 
@@ -13,12 +13,16 @@
   <input
     type="text"
     class="form-control"
-    [(ngModel)] ="newAmount"
+    [(ngModel)] ="amount"
     name="amount"
   />
 
 <button (click)="onAddCategory()">Add Category</button>
 
+<div *ngFor="let category of categories">
+{{ category.category }}
+{{ category.amount }}
+</div>
 
 <!-- <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
   <div>

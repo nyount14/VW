@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './card/card.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { CategoriesService } from './categories/categories.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
     AppRoutingModule,
     CommonModule
   ],
-  providers: [],
+  providers: [CategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

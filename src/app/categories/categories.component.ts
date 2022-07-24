@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Category } from '../models/category.model';
+import { CategoriesService } from './categories.service';
 
 @Component({
   selector: 'app-categories',
@@ -9,21 +10,25 @@ import { Category } from '../models/category.model';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-
+  categories: Category[];
   // categoryForm: FormGroup;
-  @Output() categoryCreated = new EventEmitter<Category>();
-  newCategory: string;
-  newAmount: number;
+  // @Output() categoryCreated = new EventEmitter<Category>();
+  category: string;
+  amount: number;
+  newCategory: Category;
 
-  constructor() {
+  constructor(private categoriesService: CategoriesService) {
     console.log()
    }
 
   ngOnInit(): void{
-    // this.categoryForm = new FormGroup({
-    //   'category': new FormControl('', [Validators.minLength(5), Validators.required]),
-    //   'amount': new FormControl(null, [Validators.required])
-    // });
+    this.categories = this.categoriesService.getCategories();
+    this.categoriesService.categoriesChanged
+      .subscribe(
+        (categories: Category[]) => {
+          this.categories = categories;
+        }
+      )
   }
 
   onSubmit(){
@@ -32,12 +37,13 @@ export class CategoriesComponent implements OnInit {
     // this.categoryForm.reset()
   };
 
-  onAddCategory(){
-    this.categoryCreated.emit({
-      category: this.newCategory,
-      amount: this.newAmount
-    });
+  onAddCategory() {
+    this.newCategory = new Category(this.category, this.amount);
+    this.categoriesService.addCategory(this.newCategory);
+
+    // this.categoryCreated.emit({
+    //   category: this.newCategory,
+    //   amount: this.newAmount
+    };
 
   }
-
-}
