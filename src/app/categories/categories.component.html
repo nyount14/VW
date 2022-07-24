@@ -20,9 +20,14 @@
 <button (click)="onAddCategory()">Add Category</button>
 
 <div *ngFor="let category of categories">
-{{ category.category }}
-{{ category.amount }}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ category.category }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ category.amount }}</h6>
+    </div>
+  </div>
 </div>
+
 
 <!-- <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
   <div>
