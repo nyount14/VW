@@ -13,6 +13,7 @@ import { CardComponent } from './card/card.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { CategoriesService } from './categories/categories.service';
+import { TransactionsService } from './transactions/transactions.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { CategoriesService } from './categories/categories.service';
     AppRoutingModule,
     CommonModule
   ],
-  providers: [CategoriesService],
+  providers: [CategoriesService, TransactionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
