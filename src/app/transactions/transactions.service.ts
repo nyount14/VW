@@ -10,7 +10,7 @@ export class TransactionsService {
   private transactions: Transaction[] = [
     new Transaction(
       52,
-      new Category('Food', 100),
+      new Category(1, 'Food', 100),
       '7/11/2022',
       'debit',
       'publix groceries',

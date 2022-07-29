@@ -16,6 +16,8 @@ import { CategoriesService } from './categories/categories.service';
 import { TransactionsService } from './transactions/transactions.service';
 import { TransactionStartComponent } from './transactions/transaction-start/transaction-start.component';
 import { TransactionDetailComponent } from './transactions/transaction-detail/transaction-detail.component';
+import { CategoriesDetailComponent } from './categories/categories-detail/categories-detail.component';
+import { CategoriesStartComponent } from './categories/categories-start/categories-start.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TransactionDetailComponent } from './transactions/transaction-detail/tr
     CategoriesComponent,
     TransactionsComponent,
     TransactionStartComponent,
-    TransactionDetailComponent
+    TransactionDetailComponent,
+    CategoriesDetailComponent,
+    CategoriesStartComponent
   ],
   imports: [
     BrowserModule,

@@ -13,9 +13,11 @@ export class CategoriesComponent implements OnInit {
   categories: Category[];
   // categoryForm: FormGroup;
   // @Output() categoryCreated = new EventEmitter<Category>();
+  id: number;
   category: string;
   amount: number;
   newCategory: Category;
+
 
   constructor(private categoriesService: CategoriesService) {
     console.log()
@@ -38,7 +40,7 @@ export class CategoriesComponent implements OnInit {
   };
 
   onAddCategory() {
-    this.newCategory = new Category(this.category, this.amount);
+    this.newCategory = new Category(this.id, this.category, this.amount);
     this.categoriesService.addCategory(this.newCategory);
 
     // this.categoryCreated.emit({

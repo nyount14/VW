@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CategoriesDetailComponent } from './categories/categories-detail/categories-detail.component';
+import { CategoriesStartComponent } from './categories/categories-start/categories-start.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -13,7 +15,11 @@ const routes: Routes = [
     { path: '', component: TransactionStartComponent },
     { path: ':id', component: TransactionDetailComponent}
   ] },
-  { path: 'categories', component: CategoriesComponent },
+  { path: 'categories', component: CategoriesComponent, children: [
+    { path: '', component: CategoriesStartComponent },
+    { path: ':id', component: CategoriesDetailComponent },
+  ] },
+
   { path: '**', component: NotFoundComponent },
 ];
 

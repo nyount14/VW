@@ -1,4 +1,4 @@
-
+<h1>Add a category</h1>
 
 
   <label>Category</label>
@@ -19,14 +19,30 @@
 
 <button (click)="onAddCategory()">Add Category</button>
 
-<div *ngFor="let category of categories">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{ category.category }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{ category.amount }}</h6>
+<hr>
+
+<h1>Select a category</h1>
+
+<div class="list-group">
+  <a
+    [routerLink]="['/categories', category.id]"
+    class="list-group-item"
+    *ngFor="let category of categories">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ category.category }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ category.amount }}</h6>
+      </div>
     </div>
-  </div>
+  </a>
 </div>
+
+<hr>
+
+<router-outlet></router-outlet>
+
+
+
 
 
 <!-- <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
