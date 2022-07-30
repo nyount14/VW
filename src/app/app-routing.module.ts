@@ -5,6 +5,7 @@ import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.comp
 import { EnvelopesComponent } from './envelopes/envelopes.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { TransactionDetailComponent } from './transactions/transaction-detail/transaction-detail.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'envelopes', component: EnvelopesComponent, children: [
     { path: ':id', component: EnvelopeDetailComponent },
   ] },
+  { path: 'paymentmethods', component: PaymentMethodsComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

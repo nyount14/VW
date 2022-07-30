@@ -11,12 +11,10 @@ import { EnvelopesService } from './envelopes.service';
 export class EnvelopesComponent implements OnInit {
 
   envelopes: Envelope[];
-  // categoryForm: FormGroup;
-  // @Output() categoryCreated = new EventEmitter<Category>();
   id: number;
   category: string;
   amount: number;
-  newEnvelope: Envelope;
+
 
 
   constructor(private envelopesService: EnvelopesService,
@@ -36,18 +34,6 @@ export class EnvelopesComponent implements OnInit {
 
   onSubmit(){
     console.log('form was submitted')
-    // this.categories.push({})
-    // this.categoryForm.reset()
   };
-
-  onAddEnvelope() {
-    this.newEnvelope = new Envelope(this.id, this.category, this.amount);
-    this.envelopesService.addEnvelope(this.newEnvelope);
-    this.router.navigate(['/envelopes'])
-
-    // this.categoryCreated.emit({
-    //   category: this.newCategory,
-    //   amount: this.newAmount
-    };
 
   }

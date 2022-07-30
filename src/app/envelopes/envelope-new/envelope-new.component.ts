@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Envelope } from 'src/app/models/envelope.model';
 import { EnvelopesService } from '../envelopes.service';
 
@@ -15,7 +16,8 @@ export class EnvelopeNewComponent implements OnInit {
   amount: number;
   newEnvelope: Envelope;
 
-  constructor(private envelopesService: EnvelopesService) {
+  constructor(private envelopesService: EnvelopesService,
+              private router: Router) {
     console.log()
    }
 
@@ -25,6 +27,7 @@ export class EnvelopeNewComponent implements OnInit {
   onAddEnvelope() {
     this.newEnvelope = new Envelope(this.id, this.category, this.amount);
     this.envelopesService.addEnvelope(this.newEnvelope);
+    this.router.navigate(['/envelopes'])
     };
 
 }

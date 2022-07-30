@@ -1,0 +1,16 @@
+<h1>Select a payment method to see its associated transactions</h1>
+
+<div class="list-group">
+  <a
+    [routerLink]="['/paymentmethods', paymentMethod.id]"
+    class="list-group-item"
+    *ngFor="let paymentMethod of paymentMethods">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ paymentMethod.method }}</h5>
+      </div>
+    </div>
+  </a>
+</div>
+
+<hr>

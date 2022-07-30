@@ -12,11 +12,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { TransactionsService } from './transactions/transactions.service';
 import { TransactionDetailComponent } from './transactions/transaction-detail/transaction-detail.component';
-import { PaymentMethodComponent } from './payment-method/payment-method.component';
+import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { EnvelopesComponent } from './envelopes/envelopes.component';
 import { EnvelopesService } from './envelopes/envelopes.service';
 import { EnvelopeDetailComponent } from './envelopes/envelope-detail/envelope-detail.component';
 import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.component';
+import { PaymentMethodsService } from './payment-methods/payment-methods.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.comp
     NavbarComponent,
     TransactionsComponent,
     TransactionDetailComponent,
-    PaymentMethodComponent,
+    PaymentMethodsComponent,
     EnvelopesComponent,
     EnvelopeDetailComponent,
     EnvelopeNewComponent,
@@ -38,7 +39,7 @@ import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.comp
     AppRoutingModule,
     CommonModule
   ],
-  providers: [EnvelopesService, TransactionsService],
+  providers: [EnvelopesService, TransactionsService, PaymentMethodsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
