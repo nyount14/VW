@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoriesDetailComponent } from './categories/categories-detail/categories-detail.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { CategoryNewComponent } from './categories/category-new/category-new.component';
+import { EnvelopeDetailComponent } from './envelopes/envelope-detail/envelope-detail.component';
+import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.component';
+import { EnvelopesComponent } from './envelopes/envelopes.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TransactionDetailComponent } from './transactions/transaction-detail/transaction-detail.component';
@@ -13,9 +13,9 @@ const routes: Routes = [
   { path: 'transactions', component: TransactionsComponent, children: [
     { path: ':id', component: TransactionDetailComponent}
   ] },
-  { path: 'categories/new', component: CategoryNewComponent },
-  { path: 'categories', component: CategoriesComponent, children: [
-    { path: ':id', component: CategoriesDetailComponent },
+  { path: 'envelopes/new', component: EnvelopeNewComponent },
+  { path: 'envelopes', component: EnvelopesComponent, children: [
+    { path: ':id', component: EnvelopeDetailComponent },
   ] },
   { path: '**', component: NotFoundComponent },
 ];

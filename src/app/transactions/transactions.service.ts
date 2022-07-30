@@ -1,6 +1,6 @@
 import { EventEmitter } from "@angular/core";
 import { Transaction } from "../models/transaction.model";
-import { Category } from "../models/category.model";
+import { Envelope } from "../models/envelope.model";
 import { PaymentMethod } from "../models/paymentmethod.model";
 
 
@@ -10,7 +10,7 @@ export class TransactionsService {
   private transactions: Transaction[] = [
     new Transaction(
       52,
-      new Category(1, 'Food', 100),
+      new Envelope(1, 'Food', 100),
       '7/11/2022',
       'debit',
       'publix groceries',

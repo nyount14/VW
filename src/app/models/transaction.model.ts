@@ -1,11 +1,11 @@
-import { Category } from "./category.model";
+import { Envelope } from "./envelope.model";
 import { PaymentMethod } from "./paymentmethod.model";
 
 
 export class Transaction {
   constructor(
     public amount: number,
-    public category: Category,
+    public category: Envelope,
     public date: string,
     public type: string,
     public description: string,

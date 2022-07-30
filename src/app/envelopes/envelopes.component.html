@@ -1,0 +1,19 @@
+<h1>Select an envelope to see its associated transactions</h1>
+
+<div class="list-group">
+  <a
+    [routerLink]="['/envelopes', envelope.id]"
+    class="list-group-item"
+    *ngFor="let envelope of envelopes">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ envelope.category }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ envelope.amount }}</h6>
+      </div>
+    </div>
+  </a>
+</div>
+
+<hr>
+
+<router-outlet></router-outlet>
