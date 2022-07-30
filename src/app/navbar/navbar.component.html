@@ -1,28 +1,48 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Virtual Envelopes</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/categories">Categories</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/transactions">Transactions</a>
-        </li>
+        </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categories
+            Envelopes
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li></li>
-            <li><a class="dropdown-item" routerLink="/categories">View Categories</a></li>
-            <li><a class="dropdown-item" routerLink="/categories">Add a Category</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/categories','new']">Add an Envelope</a></li>
+            <li><a class="dropdown-item" routerLink="/categories">View Envelopes</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Transactions
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li></li>
+            <li><a class="dropdown-item" routerLink="/transactions">Add a Transaction</a></li>
+            <li><a class="dropdown-item" routerLink="/transactions">View All Transactions</a></li>
+            <li><a class="dropdown-item" routerLink="/transactions">View all Credits</a></li>
+            <li><a class="dropdown-item" routerLink="/transactions">View all Debits</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Payment Methods
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li></li>
+            <li><a class="dropdown-item" routerLink="/transactions">Add a Payment Method</a></li>
+            <li><a class="dropdown-item" routerLink="/transactions">View All Payment Methods</a></li>
           </ul>
         </li>
       </ul>

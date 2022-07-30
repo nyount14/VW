@@ -14,10 +14,10 @@ import { CategoriesComponent } from './categories/categories.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { CategoriesService } from './categories/categories.service';
 import { TransactionsService } from './transactions/transactions.service';
-import { TransactionStartComponent } from './transactions/transaction-start/transaction-start.component';
 import { TransactionDetailComponent } from './transactions/transaction-detail/transaction-detail.component';
 import { CategoriesDetailComponent } from './categories/categories-detail/categories-detail.component';
-import { CategoriesStartComponent } from './categories/categories-start/categories-start.component';
+import { CategoryNewComponent } from './categories/category-new/category-new.component';
+import { PaymentMethodComponent } from './payment-method/payment-method.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +28,10 @@ import { CategoriesStartComponent } from './categories/categories-start/categori
     CardComponent,
     CategoriesComponent,
     TransactionsComponent,
-    TransactionStartComponent,
     TransactionDetailComponent,
     CategoriesDetailComponent,
-    CategoriesStartComponent
+    CategoryNewComponent,
+    PaymentMethodComponent,
   ],
   imports: [
     BrowserModule,

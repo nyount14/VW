@@ -1,0 +1,20 @@
+<h1>Add a category</h1>
+
+
+  <label>Category</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="category"
+    name="category"
+  />
+
+  <label>Amount</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="amount"
+    name="amount"
+  />
+
+<button (click)="onAddCategory()">Add Category</button>
