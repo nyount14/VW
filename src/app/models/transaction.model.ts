@@ -4,11 +4,12 @@ import { PaymentMethod } from "./paymentmethod.model";
 
 export class Transaction {
   constructor(
+    public id: number,
     public amount: number,
-    public category: Envelope,
+    public category: string,
     public date: string,
     public type: string,
     public description: string,
-    public paymentmethod?: PaymentMethod,
+    public paymentmethod?: string,
     ) {}
 };

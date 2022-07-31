@@ -10,11 +10,11 @@ export class TransactionsService {
   private transactions: Transaction[] = [
     new Transaction(
       52,
-      new Envelope(5, 'Food', 100),
+      50,
       '7/11/2022',
       'debit',
       'publix groceries',
-      new PaymentMethod(5, 'cash'),
+      'cash',
     ),
 
   ]

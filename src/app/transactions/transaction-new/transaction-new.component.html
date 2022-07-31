@@ -1,0 +1,44 @@
+<h1>Add your purchase below</h1>
+
+
+  <label>Amount</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="amount"
+    name="amount"
+  />
+
+  <label>Category</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="category"
+    name="category"
+  />
+
+  <label>Date</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="date"
+    name="date"
+  />
+
+  <label>Description</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="description"
+    name="description"
+  />
+
+  <label>Payment Method</label>
+  <select
+  type="text"
+  class="form-control"
+  [(ngModel)] ="paymentMethod"
+  name="paymentMethod">
+  </select>
+
+<button (click)="onAddTransaction()">Add Transaction</button>

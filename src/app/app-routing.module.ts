@@ -7,16 +7,18 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { TransactionDetailComponent } from './transactions/transaction-detail/transaction-detail.component';
+import { TransactionNewComponent } from './transactions/transaction-new/transaction-new.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'transactions', component: TransactionsComponent, children: [
-    { path: ':id', component: TransactionDetailComponent}
-  ] },
   { path: 'envelopes/new', component: EnvelopeNewComponent },
   { path: 'envelopes', component: EnvelopesComponent, children: [
     { path: ':id', component: EnvelopeDetailComponent },
+  ] },
+  { path: 'transactions/new', component: TransactionNewComponent },
+  { path: 'transactions', component: TransactionsComponent, children: [
+    { path: ':id', component: TransactionDetailComponent}
   ] },
   { path: 'paymentmethods', component: PaymentMethodsComponent },
   { path: '**', component: NotFoundComponent },

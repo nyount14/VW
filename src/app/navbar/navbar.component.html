@@ -20,19 +20,19 @@
             <li></li>
             <li><a class="dropdown-item" [routerLink]="['/envelopes','new']">Add an Envelope</a></li>
             <li><a class="dropdown-item" routerLink="/envelopes">View Envelopes</a></li>
+            <li><a class="dropdown-item" routerLink="/envelopes">Add Money to a Envelope</a></li>
+
 
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Transactions
+            Purchases
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li></li>
-            <li><a class="dropdown-item" routerLink="/transactions">Add a Transaction</a></li>
-            <li><a class="dropdown-item" routerLink="/transactions">View All Transactions</a></li>
-            <li><a class="dropdown-item" routerLink="/transactions">View all Credits</a></li>
-            <li><a class="dropdown-item" routerLink="/transactions">View all Debits</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/transactions', 'new']">Make a Purchase</a></li>
+            <li><a class="dropdown-item" routerLink="/transactions">View all Receipts</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
