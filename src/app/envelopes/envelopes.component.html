@@ -1,4 +1,4 @@
-<h1>Select an envelope to see its associated transactions</h1>
+<h1>Look at receipts in an envelope or add money to an envelope</h1>
 
 <div class="list-group">
   <a
@@ -9,6 +9,12 @@
       <div class="card-body">
         <h5 class="card-title">{{ envelope.category }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{ envelope.amount }}</h6>
+      </div>
+      <div>
+        <button btn-btn primary (click)="onShowReciepts()">receipts</button>
+      </div>
+      <div>
+        <button btn-btn primary (click)="onAddMoney()">Add money</button>
       </div>
     </div>
   </a>

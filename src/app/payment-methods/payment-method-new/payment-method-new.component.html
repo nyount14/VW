@@ -1,0 +1,20 @@
+<h1>Add a Payment Method</h1>
+
+
+  <label>ID</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="id"
+    name="id"
+  />
+
+  <label>Payment Method</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="method"
+    name="method"
+  />
+
+<button (click)="onAddPaymentMethod()">Add Payment Method</button>

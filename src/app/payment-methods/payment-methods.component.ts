@@ -36,4 +36,12 @@ export class PaymentMethodsComponent implements OnInit {
     // this.categoryForm.reset()
   };
 
+  onDelete(){
+    console.log('payment method was deleted')
+  };
+
+  onViewReciepts(){
+    console.log('here are all the receipts associated with this payment method')
+  };
+
 }

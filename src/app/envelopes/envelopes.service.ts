@@ -29,8 +29,8 @@ envelopesChanged = new EventEmitter<Envelope[]>();
 
  getEnvelope(id: number){
   const envelope = this.envelopes.find(
-    (c) => {
-      return c.id === id;
+    (e) => {
+      return e.id === id;
     }
   );
   return envelope;

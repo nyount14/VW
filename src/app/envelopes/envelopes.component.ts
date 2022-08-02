@@ -36,4 +36,12 @@ export class EnvelopesComponent implements OnInit {
     console.log('form was submitted')
   };
 
+  onShowReciepts(){
+    console.log('here are all of the receipts')
+  }
+
+  onAddMoney(){
+    console.log("I've added money to this envelope")
+  }
+
   }

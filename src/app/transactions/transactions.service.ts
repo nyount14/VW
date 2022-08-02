@@ -8,19 +8,28 @@ export class TransactionsService {
 
   transactionsChanged = new EventEmitter<Transaction[]>();
   private transactions: Transaction[] = [
-    new Transaction(
-      52,
-      50,
-      '7/11/2022',
-      'debit',
-      'publix groceries',
-      'cash',
-    ),
-
+    {
+      id: 1,
+      amount: 30,
+      category: 'Food',
+      date: '1/1/2022',
+      type: 'debit',
+      description: 'publix lunch',
+      paymentmethod: 'cash'
+    },
   ]
 
  getTransactions() {
   return this.transactions.slice();
+ }
+
+ getTransaction(id: number){
+  const transaction = this.transactions.find(
+    (t) => {
+      return t.id === id;
+    }
+  );
+  return transaction;
  }
 
  addTransaction(transaction: Transaction){

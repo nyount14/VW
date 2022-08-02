@@ -1,5 +1,12 @@
-<h1>Add your purchase below</h1>
+<h1>Provide purchase details below to generate a reciept</h1>
 
+<label>ID</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="id"
+    name="id"
+  />
 
   <label>Amount</label>
   <input
@@ -23,6 +30,14 @@
     class="form-control"
     [(ngModel)] ="date"
     name="date"
+  />
+
+  <label>Type</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)] ="type"
+    name="type"
   />
 
   <label>Description</label>

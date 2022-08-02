@@ -12,8 +12,13 @@ export class TransactionsComponent implements OnInit {
 
   transactions: Transaction[];
   id: number;
-  category: string;
   amount: number;
+  category: string;
+  date: string;
+  type: string;
+  description: string;
+  paymentMethod: string;
+  newTransaction: Transaction;
 
 
 
@@ -34,5 +39,9 @@ export class TransactionsComponent implements OnInit {
 
   onSubmit(){
     console.log('form was submitted')
+  };
+
+  onDelete(){
+    console.log('receipt was deleted')
   };
 }

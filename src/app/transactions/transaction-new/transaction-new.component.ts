@@ -17,6 +17,7 @@ export class TransactionNewComponent implements OnInit {
   amount: number;
   category: string;
   date: string;
+  type: string;
   description: string;
   paymentMethod: string;
   newTransaction: Transaction;
@@ -30,7 +31,7 @@ export class TransactionNewComponent implements OnInit {
   }
 
   onAddTransaction() {
-    this.newTransaction = new Transaction(this.id, this.amount, this.category, this.date, this.description, this.paymentMethod);
+    this.newTransaction = new Transaction(this.id, this.amount, this.category, this.date, this.type, this.description, this.paymentMethod);
     this.transactionsService.addTransaction(this.newTransaction);
     this.router.navigate(['/transactions'])
     };

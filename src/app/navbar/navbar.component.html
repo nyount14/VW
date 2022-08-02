@@ -18,11 +18,8 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li></li>
-            <li><a class="dropdown-item" [routerLink]="['/envelopes','new']">Add an Envelope</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/envelopes','new']">Create an Envelope</a></li>
             <li><a class="dropdown-item" routerLink="/envelopes">View Envelopes</a></li>
-            <li><a class="dropdown-item" routerLink="/envelopes">Add Money to a Envelope</a></li>
-
-
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -41,7 +38,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li></li>
-            <li><a class="dropdown-item" routerLink="/transactions">Add a Payment Method</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/paymentmethods', 'new']">Add a Payment Method</a></li>
             <li><a class="dropdown-item" routerLink="/paymentmethods">View All Payment Methods</a></li>
           </ul>
         </li>

@@ -9,6 +9,12 @@
       <div class="card-body">
         <h5 class="card-title">{{ paymentMethod.method }}</h5>
       </div>
+      <div>
+        <button btn-btn primary (click)="onDelete()">Delete</button>
+      </div>
+      <div>
+        <button btn-btn primary (click)="onViewReciepts()">Receipts</button>
+      </div>
     </div>
   </a>
 </div>
