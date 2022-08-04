@@ -1,27 +1,37 @@
-<h1>Tell us what spending category this envelope will represent and how much money it will initially hold</h1>
 
-<label>ID</label>
-<input
-  type="text"
-  class="form-control"
-  [(ngModel)] ="id"
-  name="id"
-/>
 
-  <label>Category</label>
-  <input
-    type="text"
-    class="form-control"
-    [(ngModel)] ="category"
-    name="category"
-  />
+<div class="container">
+ <h1>Tell us what spending category this envelope will represent and how much money it will initially hold</h1>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <label>ID</label>
+    <input
+      type="text"
+      class="form-control"
+      ngModel
+      name="id"
+      required
+    />
 
-  <label>Amount</label>
-  <input
-    type="text"
-    class="form-control"
-    [(ngModel)] ="amount"
-    name="amount"
-  />
+      <label>Category</label>
+      <input
+        type="text"
+        class="form-control"
+        ngModel
+        name="category"
+      />
 
-<button (click)="onAddEnvelope()">Add Envelope</button>
+      <label>Amount</label>
+      <input
+        type="text"
+        class="form-control"
+        ngModel
+        name="amount"
+      />
+
+    <!-- <button (click)="onAddEnvelope()">Add Envelope</button> -->
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+
+</form>
+</div>
+
+

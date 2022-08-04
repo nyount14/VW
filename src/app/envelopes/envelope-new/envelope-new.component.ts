@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Envelope } from 'src/app/models/envelope.model';
 import { EnvelopesService } from '../envelopes.service';
@@ -10,6 +11,7 @@ import { EnvelopesService } from '../envelopes.service';
 })
 export class EnvelopeNewComponent implements OnInit {
 
+  @ViewChild('f') newEnvelopeForm: NgForm;
   envelopes: Envelope[];
   id: number;
   category: string;
@@ -30,4 +32,9 @@ export class EnvelopeNewComponent implements OnInit {
     this.router.navigate(['/envelopes'])
     };
 
+  onSubmit(){
+    console.log(this.newEnvelopeForm);
+  }
+
 }
+
