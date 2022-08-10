@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'envelopes', component: EnvelopesComponent, children: [
     { path: ':id', component: EnvelopeDetailComponent },
   ] },
+
   { path: 'transactions/new', component: TransactionNewComponent },
   { path: 'transactions', component: TransactionsComponent, children: [
     { path: ':id', component: TransactionDetailComponent}

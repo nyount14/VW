@@ -1,59 +1,61 @@
-<h1>Provide purchase details below to generate a reciept</h1>
-
+<div class="container">
+  <h1>Provide purchase details below to deduct money from an envelope and generate a reciept for that purchase</h1>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
 <label>ID</label>
   <input
     type="text"
     class="form-control"
-    [(ngModel)] ="id"
+    ngModel
     name="id"
+    required
   />
 
   <label>Amount</label>
   <input
     type="text"
     class="form-control"
-    [(ngModel)] ="amount"
+    ngModel
     name="amount"
+    required
   />
 
   <label>Category</label>
   <input
     type="text"
     class="form-control"
-    [(ngModel)] ="category"
+    ngModel
     name="category"
+    required
   />
 
   <label>Date</label>
   <input
     type="text"
     class="form-control"
-    [(ngModel)] ="date"
+    ngModel
     name="date"
-  />
-
-  <label>Type</label>
-  <input
-    type="text"
-    class="form-control"
-    [(ngModel)] ="type"
-    name="type"
+    required
   />
 
   <label>Description</label>
   <input
     type="text"
     class="form-control"
-    [(ngModel)] ="description"
+    ngModel
     name="description"
   />
 
   <label>Payment Method</label>
-  <select
+  <input
   type="text"
   class="form-control"
-  [(ngModel)] ="paymentMethod"
-  name="paymentMethod">
-  </select>
+  ngModel
+  name="paymentMethod"
+  required
+  />
 
-<button (click)="onAddTransaction()">Add Transaction</button>
+  <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+
+
+</form>
+</div>

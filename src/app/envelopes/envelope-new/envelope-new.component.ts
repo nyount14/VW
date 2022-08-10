@@ -26,14 +26,20 @@ export class EnvelopeNewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddEnvelope() {
+  // onAddEnvelope() {
+  //   this.newEnvelope = new Envelope(this.id, this.category, this.amount);
+  //   this.envelopesService.addEnvelope(this.newEnvelope);
+  //   this.router.navigate(['/envelopes'])
+  //   };
+
+  onSubmit(){
+    this.id = this.newEnvelopeForm.value.id;
+    this.category = this.newEnvelopeForm.value.category;
+    this.amount = this.newEnvelopeForm.value.amount;
+    // this.newEnvelopeForm.reset();
     this.newEnvelope = new Envelope(this.id, this.category, this.amount);
     this.envelopesService.addEnvelope(this.newEnvelope);
     this.router.navigate(['/envelopes'])
-    };
-
-  onSubmit(){
-    console.log(this.newEnvelopeForm);
   }
 
 }

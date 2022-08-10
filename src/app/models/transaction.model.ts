@@ -8,7 +8,6 @@ export class Transaction {
     public amount: number,
     public category: string,
     public date: string,
-    public type: string,
     public description: string,
     public paymentmethod?: string,
     ) {}

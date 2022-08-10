@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Envelope } from 'src/app/models/envelope.model';
 import { PaymentMethod } from 'src/app/models/paymentmethod.model';
-import { Transaction } from 'src/app/models/transaction.model';
 import { PaymentMethodsService } from '../payment-methods.service';
 
 @Component({
@@ -12,6 +11,7 @@ import { PaymentMethodsService } from '../payment-methods.service';
 })
 export class PaymentMethodNewComponent implements OnInit {
 
+  @ViewChild('f') newPaymentForm: NgForm;
   paymentmethods: PaymentMethod[];
   id: number;
   method: string;
@@ -19,13 +19,15 @@ export class PaymentMethodNewComponent implements OnInit {
 
   constructor(private paymentMethodsService: PaymentMethodsService,
     private router: Router) {
-console.log()
+
 }
 
 ngOnInit(): void {
 }
 
-onAddPaymentMethod() {
+onSubmit() {
+this.id = this.newPaymentForm.value.id;
+this.method = this.newPaymentForm.value.method;
 this.newPaymentMethod = new PaymentMethod(this.id, this.method);
 this.paymentMethodsService.addPaymentMethod(this.newPaymentMethod);
 this.router.navigate(['/paymentmethods'])

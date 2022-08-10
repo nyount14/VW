@@ -1,7 +1,7 @@
 
 
 <div class="container">
- <h1>Tell us what spending category this envelope will represent and how much money it will initially hold</h1>
+ <h1>Create an Envelope</h1>
   <form (ngSubmit)="onSubmit()" #f="ngForm">
     <label>ID</label>
     <input
@@ -12,24 +12,32 @@
       required
     />
 
-      <label>Category</label>
+      <label>What spending category will this envelope represent?</label>
       <input
         type="text"
         class="form-control"
         ngModel
         name="category"
+        required
       />
 
-      <label>Amount</label>
+      <label>How much money will you put in this envelope?</label>
       <input
         type="text"
         class="form-control"
         ngModel
         name="amount"
+        required
       />
+
 
     <!-- <button (click)="onAddEnvelope()">Add Envelope</button> -->
     <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+    <!-- <div *ngIf="submitted">
+      <p>{{ id }}</p>
+      <p>{{ category }}</p>
+      <p>{{ amount }}</p>
+    </div> -->
 
 </form>
 </div>

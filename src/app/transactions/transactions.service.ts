@@ -13,7 +13,6 @@ export class TransactionsService {
       amount: 30,
       category: 'Food',
       date: '1/1/2022',
-      type: 'debit',
       description: 'publix lunch',
       paymentmethod: 'cash'
     },
