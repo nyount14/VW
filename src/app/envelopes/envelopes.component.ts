@@ -11,7 +11,6 @@ import { EnvelopesService } from './envelopes.service';
 export class EnvelopesComponent implements OnInit {
 
   envelopes: Envelope[];
-  id: number;
   category: string;
   amount: number;
 

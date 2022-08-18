@@ -7,17 +7,14 @@ export class EnvelopesService {
 envelopesChanged = new EventEmitter<Envelope[]>();
   private envelopes: Envelope[] = [
     {
-      id: 1,
       category: 'Food',
       amount: 200
     },
     {
-      id: 2,
       category: 'Fuel',
       amount: 150
     },
     {
-      id: 3,
       category: 'Fun',
       amount: 100
     },
@@ -27,13 +24,8 @@ envelopesChanged = new EventEmitter<Envelope[]>();
   return this.envelopes.slice();
  }
 
- getEnvelope(id: number){
-  const envelope = this.envelopes.find(
-    (e) => {
-      return e.id === id;
-    }
-  );
-  return envelope;
+ getEnvelope(category: string){
+  return this.envelopes[category]
  }
 
  addEnvelope(envelope: Envelope){

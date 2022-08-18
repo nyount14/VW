@@ -13,7 +13,6 @@ export class EnvelopeNewComponent implements OnInit {
 
   @ViewChild('f') newEnvelopeForm: NgForm;
   envelopes: Envelope[];
-  id: number;
   category: string;
   amount: number;
   newEnvelope: Envelope;
@@ -33,11 +32,10 @@ export class EnvelopeNewComponent implements OnInit {
   //   };
 
   onSubmit(){
-    this.id = this.newEnvelopeForm.value.id;
     this.category = this.newEnvelopeForm.value.category;
     this.amount = this.newEnvelopeForm.value.amount;
     // this.newEnvelopeForm.reset();
-    this.newEnvelope = new Envelope(this.id, this.category, this.amount);
+    this.newEnvelope = new Envelope(this.category, this.amount);
     this.envelopesService.addEnvelope(this.newEnvelope);
     this.router.navigate(['/envelopes'])
   }

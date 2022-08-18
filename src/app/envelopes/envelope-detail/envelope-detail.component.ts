@@ -8,18 +8,18 @@ import { EnvelopesService } from '../envelopes.service';
   styleUrls: ['./envelope-detail.component.css']
 })
 export class EnvelopeDetailComponent implements OnInit {
-  envelope: {id: number, category: string, amount: number};
+  envelope: {category: string, amount: number};
 
   constructor(private envelopesService: EnvelopesService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.params['id'];
-    this.envelope = this.envelopesService.getEnvelope(id);
+    const category = this.route.snapshot.params['category'];
+    this.envelope = this.envelopesService.getEnvelope(category);
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.envelope = this.envelopesService.getEnvelope(+params['id']);
+          this.envelope = this.envelopesService.getEnvelope(params['category']);
         }
       )
   }
