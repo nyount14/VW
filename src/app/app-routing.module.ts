@@ -13,9 +13,12 @@ import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'envelopes', component: EnvelopesComponent },
   { path: 'envelopes/new', component: EnvelopeNewComponent },
-  { path: 'envelopes/:category', component: EnvelopeDetailComponent },
+  { path: 'envelopes', component: EnvelopesComponent, children: [
+    { path: ':category', component: EnvelopeDetailComponent },
+  ] },
+
+
 
 
   { path: 'transactions/new', component: TransactionNewComponent },

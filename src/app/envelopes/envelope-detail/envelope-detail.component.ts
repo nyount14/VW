@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Envelope } from 'src/app/models/envelope.model';
 import { EnvelopesService } from '../envelopes.service';
 
 @Component({
@@ -8,10 +9,11 @@ import { EnvelopesService } from '../envelopes.service';
   styleUrls: ['./envelope-detail.component.css']
 })
 export class EnvelopeDetailComponent implements OnInit {
-  envelope: {category: string, amount: number};
+  envelope: Envelope;
 
   constructor(private envelopesService: EnvelopesService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     const category = this.route.snapshot.params['category'];
@@ -19,7 +21,8 @@ export class EnvelopeDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.envelope = this.envelopesService.getEnvelope(params['category']);
+          // this.envelope = this.envelopesService.getEnvelope(params['category']);
+          this.envelope = this.envelopesService.getEnvelope(category);
         }
       )
   }
