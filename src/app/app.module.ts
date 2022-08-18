@@ -20,6 +20,7 @@ import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.comp
 import { PaymentMethodsService } from './payment-methods/payment-methods.service';
 import { TransactionNewComponent } from './transactions/transaction-new/transaction-new.component';
 import { PaymentMethodNewComponent } from './payment-methods/payment-method-new/payment-method-new.component';
+import { EnvelopeItemComponent } from './envelopes/envelope-item/envelope-item.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PaymentMethodNewComponent } from './payment-methods/payment-method-new/
     EnvelopeNewComponent,
     TransactionNewComponent,
     PaymentMethodNewComponent,
+    EnvelopeItemComponent,
   ],
   imports: [
     BrowserModule,

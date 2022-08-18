@@ -24,8 +24,8 @@ envelopesChanged = new EventEmitter<Envelope[]>();
   return this.envelopes.slice();
  }
 
- getEnvelope(category: string){
-  return this.envelopes[category]
+ getEnvelope(index: number){
+  return this.envelopes[index]
  }
 
  addEnvelope(envelope: Envelope){

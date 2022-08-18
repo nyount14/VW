@@ -1,25 +1,37 @@
-<h1>Look at receipts in an envelope, add money to an envelope, or delete an envelope.  Beware, deleting an envelope will delete all associated receipts and money!</h1>
+<div class="container">
+  <h1>Look at receipts in an envelope, add money to an envelope, or delete an envelope.  Beware, deleting an envelope will delete all associated receipts and money!</h1>
 
-<div class="list-group">
-  <a
-    [routerLink]="['/envelopes', envelope.category]"
-    class="list-group-item"
-    *ngFor="let envelope of envelopes;">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{ envelope.category }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ envelope.amount }}</h6>
+  <!-- <div class="list-group">
+    <a
+      [routerLink]="['/envelopes', envelope.category]"
+      class="list-group-item"
+      *ngFor="let envelope of envelopes;">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ envelope.category }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ envelope.amount }}</h6>
+        </div>
+        <div>
+          <button btn-btn primary (click)="onShowReciepts()">receipts</button>
+        </div>
+        <div>
+          <button btn-btn primary (click)="onAddMoney()">Add money</button>
+        </div>
       </div>
-      <div>
-        <button btn-btn primary (click)="onShowReciepts()">receipts</button>
-      </div>
-      <div>
-        <button btn-btn primary (click)="onAddMoney()">Add money</button>
-      </div>
+    </a>
+  </div> -->
+
+  <hr>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <app-envelope-item
+        *ngFor="let envelopeEl of envelopes; let i = index"
+        [envelope]="envelopeEl"
+        [index]="i"></app-envelope-item>
     </div>
-  </a>
+  </div>
+
+  <router-outlet></router-outlet>
 </div>
 
-<hr>
-
-<router-outlet></router-outlet>

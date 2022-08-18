@@ -10,19 +10,27 @@ import { EnvelopesService } from '../envelopes.service';
 })
 export class EnvelopeDetailComponent implements OnInit {
   envelope: Envelope;
+  id: number;
 
   constructor(private envelopesService: EnvelopesService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void {
-    const category = this.route.snapshot.params['category'];
-    this.envelope = this.envelopesService.getEnvelope(category);
+    // const id = this.route.snapshot.params['id'];
+    // this.envelope = this.envelopesService.getEnvelope(this.id);
+    // this.route.params
+    //   .subscribe(
+    //     (params: Params) => {
+    //       // this.envelope = this.envelopesService.getEnvelope(params['category']);
+    //       this.envelope = this.envelopesService.getEnvelope(this.id);
+    //     }
+    //   )
     this.route.params
       .subscribe(
         (params: Params) => {
-          // this.envelope = this.envelopesService.getEnvelope(params['category']);
-          this.envelope = this.envelopesService.getEnvelope(category);
+          this.id = +params['id'];
+          this.envelope = this.envelopesService.getEnvelope(this.id);
         }
       )
   }

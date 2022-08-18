@@ -15,11 +15,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'envelopes/new', component: EnvelopeNewComponent },
   { path: 'envelopes', component: EnvelopesComponent, children: [
-    { path: ':category', component: EnvelopeDetailComponent },
+    { path: ':id', component: EnvelopeDetailComponent },
   ] },
-
-
-
 
   { path: 'transactions/new', component: TransactionNewComponent },
   { path: 'transactions', component: TransactionsComponent, children: [
