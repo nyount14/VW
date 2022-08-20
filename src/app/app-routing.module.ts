@@ -7,20 +7,18 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PaymentMethodNewComponent } from './payment-methods/payment-method-new/payment-method-new.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
-import { TransactionDetailComponent } from './transactions/transaction-detail/transaction-detail.component';
-import { TransactionNewComponent } from './transactions/transaction-new/transaction-new.component';
-import { TransactionsComponent } from './transactions/transactions.component';
+import { PurchaseDetailComponent } from './purchases/purchase-detail/purchase-detail.component';
+import { PurchaseNewComponent } from './purchases/purchase-new/purchase-new.component';
+import { PurchasesComponent } from './purchases/purchases.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'envelopes/new', component: EnvelopeNewComponent },
   { path: 'envelopes', component: EnvelopesComponent },
+  { path: 'envelopes/new', component: EnvelopeNewComponent },
   { path: 'envelopes/:id', component: EnvelopeDetailComponent },
-
-  { path: 'transactions/new', component: TransactionNewComponent },
-  { path: 'transactions', component: TransactionsComponent, children: [
-    { path: ':id', component: TransactionDetailComponent}
-  ] },
+  { path: 'purchases', component: PurchasesComponent },
+  { path: 'purchases/new', component: PurchaseNewComponent },
+  { path: 'purchases/:id', component: PurchaseDetailComponent },
   { path: 'paymentmethods/new', component: PaymentMethodNewComponent },
   { path: 'paymentmethods', component: PaymentMethodsComponent },
   { path: '**', component: NotFoundComponent },

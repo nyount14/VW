@@ -1,10 +1,10 @@
-import { EventEmitter } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { Subject } from "rxjs";
 import { Envelope } from "../models/envelope.model";
 
 
 export class EnvelopesService {
-envelopesChanged = new EventEmitter<Envelope[]>();
+envelopesChanged = new Subject<Envelope[]>();
   private envelopes: Envelope[] = [
     {
       category: 'Food',
@@ -30,7 +30,7 @@ envelopesChanged = new EventEmitter<Envelope[]>();
 
  addEnvelope(envelope: Envelope){
   this.envelopes.push(envelope);
-  this.envelopesChanged.emit(this.envelopes.slice());
+  this.envelopesChanged.next(this.envelopes.slice());
  }
 
 }

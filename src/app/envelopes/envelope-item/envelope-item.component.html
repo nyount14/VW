@@ -16,10 +16,24 @@
       <div class="card" style="width: 18rem;">
         <div class="card-body"
           style="cursor: pointer;"
-          [routerLink]="[index]"
+
           class="list-group-item clearfix">
           <h5 class="card-title">{{ envelope.category }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{ envelope.amount }}</h6>
+          <div>
+            <button class="btn btn-primary"
+            (click)="onShowReciepts()"
+            [routerLink]="[index]">receipts</button>
+          </div>
+          <div>
+            <button class="btn btn-success" (click)="onAddMoney()">Add money</button>
+          </div>
+          <div>
+            <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+          </div>
+          <div>
+            {{ purchases }}
+          </div>
         </div>
       </div>
     </div>
