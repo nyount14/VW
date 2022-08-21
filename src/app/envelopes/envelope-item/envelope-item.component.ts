@@ -23,8 +23,9 @@ export class EnvelopeItemComponent implements OnInit {
   }
 
   onShowReciepts(){
-    this.purchases = this.purchasesService.getPurchasesByCategory(this.envelope.category)
-    console.log(this.purchases)
+    // this.purchases = this.purchasesService.getPurchasesByCategory(this.envelope.category)
+    // console.log(this.purchases)
+    this.router.navigate(['/purchases', this.envelope.category])
   };
 
   onAddMoney(){
