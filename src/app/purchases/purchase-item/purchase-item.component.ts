@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Purchase } from 'src/app/models/purchase.model';
+import { PurchasesService } from '../purchases.service';
 
 @Component({
   selector: 'app-purchase-item',
@@ -10,13 +12,15 @@ export class PurchaseItemComponent implements OnInit {
   @Input() purchase: Purchase;
   @Input() index: number;
 
-  constructor() { }
+  constructor(private purchaseService: PurchasesService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onDelete(){
-
+    this.purchaseService.deletePurchase(this.index);
+    this.router.navigate(['/envelopes']);
   }
 
 }
