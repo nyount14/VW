@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Purchase } from '../models/purchase.model';
 import { PurchasesService } from './purchases.service';
 
@@ -12,7 +12,8 @@ import { PurchasesService } from './purchases.service';
 
     purchases: Purchase[];
     constructor(private router: Router,
-                private purchasesService: PurchasesService) {}
+                private purchasesService: PurchasesService,
+                private route: ActivatedRoute) {}
 
   ngOnInit(): void{
     this.purchases = this.purchasesService.getPurchases();

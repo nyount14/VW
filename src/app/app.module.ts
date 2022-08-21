@@ -22,6 +22,7 @@ import { PurchaseDetailComponent } from './purchases/purchase-detail/purchase-de
 import { PurchaseNewComponent } from './purchases/purchase-new/purchase-new.component';
 import { PurchaseItemComponent } from './purchases/purchase-item/purchase-item.component';
 import { PurchasesService } from './purchases/purchases.service';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PurchasesService } from './purchases/purchases.service';
     PurchaseDetailComponent,
     PurchaseNewComponent,
     PurchaseItemComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

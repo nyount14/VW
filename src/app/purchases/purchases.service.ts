@@ -9,21 +9,21 @@ export class PurchasesService {
   purchasesChanged = new Subject<Purchase[]>();
   private purchases: Purchase[] = [
     {
-      amount: 30,
+      amount: 100,
       category: 'Food',
       date: '1/1/2022',
       description: 'publix lunch',
       paymentmethod: 'cash'
     },
     {
-      amount: 30,
+      amount: 50,
       category: 'Fun',
       date: '1/1/2022',
       description: 'movie',
       paymentmethod: 'cash'
     },
     {
-      amount: 30,
+      amount: 25,
       category: 'Fuel',
       date: '1/1/2022',
       description: 'mapco',
