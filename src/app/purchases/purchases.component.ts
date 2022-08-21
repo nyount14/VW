@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Purchase } from '../models/purchase.model';
 import { PurchasesService } from './purchases.service';
 
@@ -10,6 +10,7 @@ import { PurchasesService } from './purchases.service';
 })
   export class PurchasesComponent implements OnInit {
 
+    category: '';
     purchases: Purchase[];
     constructor(private router: Router,
                 private purchasesService: PurchasesService,
@@ -23,6 +24,12 @@ import { PurchasesService } from './purchases.service';
         this.purchases = purchases;
         }
       )
+    this.route.params
+    .subscribe(
+      (params: Params) => {
+        this.category = params['id'];
+      }
+    )
   }
 }
 

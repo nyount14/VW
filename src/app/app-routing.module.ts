@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'envelopes/:id', component: EnvelopeDetailComponent },
   { path: 'purchases', component: PurchasesComponent },
   { path: 'purchases/new', component: PurchaseNewComponent },
-  { path: 'purchases/:id', component: PurchaseDetailComponent },
+  { path: 'purchases/:id', component: PurchasesComponent },
   { path: 'paymentmethods/new', component: PaymentMethodNewComponent },
   { path: 'paymentmethods', component: PaymentMethodsComponent },
   { path: '**', component: NotFoundComponent },

@@ -29,6 +29,20 @@ export class PurchasesService {
       description: 'mapco',
       paymentmethod: 'cash'
     },
+    {
+      amount: 50,
+      category: 'Fun',
+      date: '1/1/2022',
+      description: 'movie',
+      paymentmethod: 'cash'
+    },
+    {
+      amount: 50,
+      category: 'Fun',
+      date: '1/1/2022',
+      description: 'movie',
+      paymentmethod: 'cash'
+    },
   ]
 
  getPurchases() {
@@ -45,6 +59,11 @@ export class PurchasesService {
 
  addPurchase(purchase: Purchase){
   this.purchases.push(purchase);
+  this.purchasesChanged.next(this.purchases.slice());
+ }
+
+ deletePurchase(index: number){
+  this.purchases.splice(index, 1);
   this.purchasesChanged.next(this.purchases.slice());
  }
 
