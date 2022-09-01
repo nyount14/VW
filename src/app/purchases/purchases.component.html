@@ -9,9 +9,11 @@
         *ngFor="let purchaseEl of purchases; let i = index"
         [purchase]="purchaseEl"
         [index]="i"></app-purchase-item>
+      </div>
     </div>
     <div class="col-xs-12" *ngIf="category">
-      <app-purchase-item
+      <div class="list-group">
+        <app-purchase-item
         *ngFor="let purchaseEl of purchases | filter:category:'category'; let i = index"
         [purchase]="purchaseEl"
         [index]="i"></app-purchase-item>
