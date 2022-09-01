@@ -28,6 +28,7 @@ import { PurchasesService } from './purchases.service';
     .subscribe(
       (params: Params) => {
         this.category = params['id'];
+        console.log(this.category)
       }
     )
   }

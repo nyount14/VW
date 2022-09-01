@@ -43,6 +43,13 @@ export class PurchasesService {
       description: 'movie',
       paymentmethod: 'cash'
     },
+    {
+      amount: 50,
+      category: 'Fuel',
+      date: '1/12/2022',
+      description: 'mapco',
+      paymentmethod: 'cash'
+    },
   ]
 
  getPurchases() {
@@ -54,7 +61,7 @@ export class PurchasesService {
  }
 
  getPurchasesByCategory(category: string) {
-  return this.purchases[category]
+  return this.purchases[category];
  }
 
  addPurchase(purchase: Purchase){
