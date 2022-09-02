@@ -10,11 +10,12 @@ import { PurchasesService } from './purchases.service';
 })
   export class PurchasesComponent implements OnInit {
 
-    category: '';
-    purchases: Purchase[];
-    constructor(private router: Router,
-                private purchasesService: PurchasesService,
-                private route: ActivatedRoute) {}
+  params = '';
+  filterData: '';
+  purchases: Purchase[];
+  constructor(private router: Router,
+              private purchasesService: PurchasesService,
+              private route: ActivatedRoute) {}
 
   ngOnInit(): void{
     this.purchases = this.purchasesService.getPurchases();
@@ -27,12 +28,22 @@ import { PurchasesService } from './purchases.service';
     this.route.params
     .subscribe(
       (params: Params) => {
-        this.category = params['id'];
-        console.log(this.category)
+        this.params = params['id'];
+        this.filterData = this.params.filter(() => {
+          if (this.filterData === this.purchases['category']){
+            return
+          }
+        })
       }
     )
   }
 }
+
+// this.route.params
+//     .subscribe(
+//       (params: Params) => {
+//         this.filterData = params['id'];
+//         console.log(this.filterData)
 
 
 

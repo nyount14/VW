@@ -4,7 +4,7 @@
       style="cursor: pointer;"
 
       class="list-group-item clearfix">
-      <h5 class="card-title">{{ purchase.amount }}</h5>
+      <h5 class="card-title">{{ purchase.amount | currency }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ purchase.category }}</h6>
       <h6 class="card-subtitle mb-2 text-muted">{{ purchase.date }}</h6>
       <h6 class="card-subtitle mb-2 text-muted">{{ purchase.description }}</h6>

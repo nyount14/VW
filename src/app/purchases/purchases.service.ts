@@ -27,7 +27,7 @@ export class PurchasesService {
       category: 'Fuel',
       date: '1/1/2022',
       description: 'mapco',
-      paymentmethod: 'cash'
+      paymentmethod: 'freedom card'
     },
     {
       amount: 50,
@@ -41,7 +41,7 @@ export class PurchasesService {
       category: 'Fun',
       date: '1/1/2022',
       description: 'movie',
-      paymentmethod: 'cash'
+      paymentmethod: 'amazon card'
     },
     {
       amount: 50,

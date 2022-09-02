@@ -7,15 +7,12 @@ export class PaymentMethodsService {
 paymentMethodsChanged = new EventEmitter<PaymentMethod[]>();
   private paymentMethods: PaymentMethod[] = [
     {
-      id: 1,
       method: 'cash',
     },
     {
-      id: 2,
       method: 'amazon card',
     },
     {
-      id: 3,
       method: 'freedom card',
     },
   ]
@@ -24,13 +21,8 @@ paymentMethodsChanged = new EventEmitter<PaymentMethod[]>();
   return this.paymentMethods.slice();
  }
 
- getPaymentMethod(id: number){
-  const paymentMethods = this.paymentMethods.find(
-    (c) => {
-      return c.id === id;
-    }
-  );
-  return paymentMethods;
+ getPaymentMethod(index: number){
+   return this.paymentMethods[index]
  }
 
  addPaymentMethod(paymentMethod: PaymentMethod){

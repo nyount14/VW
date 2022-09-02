@@ -13,7 +13,6 @@ export class PaymentMethodNewComponent implements OnInit {
 
   @ViewChild('f') newPaymentForm: NgForm;
   paymentmethods: PaymentMethod[];
-  id: number;
   method: string;
   newPaymentMethod: PaymentMethod
 
@@ -26,11 +25,11 @@ ngOnInit(): void {
 }
 
 onSubmit() {
-this.id = this.newPaymentForm.value.id;
 this.method = this.newPaymentForm.value.method;
-this.newPaymentMethod = new PaymentMethod(this.id, this.method);
+this.newPaymentMethod = new PaymentMethod(this.method);
 this.paymentMethodsService.addPaymentMethod(this.newPaymentMethod);
 this.router.navigate(['/paymentmethods'])
 };
+
 
 }

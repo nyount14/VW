@@ -19,7 +19,7 @@
 
           class="list-group-item clearfix">
           <h5 class="card-title">{{ envelope.category }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ envelope.amount }}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{ envelope.amount | currency }}</h6>
           <div>
             <button class="btn btn-primary"
             (click)="onShowReciepts()"

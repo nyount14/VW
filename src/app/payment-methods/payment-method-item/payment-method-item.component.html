@@ -1,0 +1,24 @@
+<div>
+  <div class="list-group">
+    <div class="list-group-item">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body"
+          style="cursor: pointer;"
+
+          class="list-group-item clearfix">
+          <h5 class="card-title">{{ paymentMethod.method }}</h5>
+          <div>
+            <button class="btn btn-primary"
+            (click)="onShowReciepts()"
+            >receipts</button>
+          </div>
+          <div>
+            <button class="btn btn-danger"
+            (click)="onDelete()"
+            >Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

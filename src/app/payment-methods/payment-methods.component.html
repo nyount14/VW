@@ -1,6 +1,4 @@
-<h1>View all receipts associated with a particular payment or delete a payment method.  Beware, deleting a payment method will delete all of it's associated receipts</h1>
-
-<div class="list-group">
+<!-- <div class="list-group">
   <a
     [routerLink]="['/paymentmethods', paymentMethod.id]"
     class="list-group-item"
@@ -17,6 +15,18 @@
       </div>
     </div>
   </a>
-</div>
+</div> -->
 
-<hr>
+<div class="container">
+  <h1>All Payment Methods</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <app-payment-method-item
+        *ngFor="let paymentMethodEl of paymentMethods; let i = index"
+        [paymentMethod]="paymentMethodEl"
+        [index]="i"></app-payment-method-item>
+    </div>
+  </div>
+</div>

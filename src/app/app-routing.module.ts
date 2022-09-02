@@ -5,6 +5,7 @@ import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.comp
 import { EnvelopesComponent } from './envelopes/envelopes.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PaymentMethodDetailComponent } from './payment-methods/payment-method-detail/payment-method-detail.component';
 import { PaymentMethodNewComponent } from './payment-methods/payment-method-new/payment-method-new.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { PurchaseDetailComponent } from './purchases/purchase-detail/purchase-detail.component';
@@ -19,8 +20,9 @@ const routes: Routes = [
   { path: 'purchases', component: PurchasesComponent },
   { path: 'purchases/new', component: PurchaseNewComponent },
   { path: 'purchases/:id', component: PurchasesComponent },
-  { path: 'paymentmethods/new', component: PaymentMethodNewComponent },
   { path: 'paymentmethods', component: PaymentMethodsComponent },
+  { path: 'paymentmethods/new', component: PaymentMethodNewComponent },
+  { path: 'paymentmethods/:id', component: PaymentMethodDetailComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

@@ -23,6 +23,8 @@ import { PurchaseNewComponent } from './purchases/purchase-new/purchase-new.comp
 import { PurchaseItemComponent } from './purchases/purchase-item/purchase-item.component';
 import { PurchasesService } from './purchases/purchases.service';
 import { FilterPipe } from './filter.pipe';
+import { PaymentMethodDetailComponent } from './payment-methods/payment-method-detail/payment-method-detail.component';
+import { PaymentMethodItemComponent } from './payment-methods/payment-method-item/payment-method-item.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { FilterPipe } from './filter.pipe';
     PurchaseNewComponent,
     PurchaseItemComponent,
     FilterPipe,
+    PaymentMethodDetailComponent,
+    PaymentMethodItemComponent,
   ],
   imports: [
     BrowserModule,
