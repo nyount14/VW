@@ -11,15 +11,15 @@
         [index]="i"></app-purchase-item>
       </div>
     </div>
-    <!-- <div class="col-xs-12" *ngIf="filterData">
+    <div class="col-xs-12" *ngIf="filterData">
       <div class="list-group">
         <app-purchase-item
-        *ngFor="let purchaseEl of purchases | filter:filterData:'paymentmethod'; let i = index"
+        *ngFor="let purchaseEl of purchases | filter:filterData:'category'; let i = index"
         [purchase]="purchaseEl"
         [index]="i"></app-purchase-item>
       </div>
-    </div> -->
-    <div class="col-xs-12" *ngIf="filterData === purchases['paymentmethod']">
+    </div>
+    <div class="col-xs-12" *ngIf="filterData">
       <div class="list-group">
         <app-purchase-item
         *ngFor="let purchaseEl of purchases | filter:filterData:'paymentmethod'; let i = index"
@@ -27,6 +27,14 @@
         [index]="i"></app-purchase-item>
       </div>
     </div>
+    <!-- <div class="col-xs-12" *ngIf="filterData === purchases['paymentmethod']">
+      <div class="list-group">
+        <app-purchase-item
+        *ngFor="let purchaseEl of purchases | filter:filterData:'paymentmethod'; let i = index"
+        [purchase]="purchaseEl"
+        [index]="i"></app-purchase-item>
+      </div>
+    </div> -->
   </div>
 </div>
 

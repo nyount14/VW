@@ -25,25 +25,22 @@ import { PurchasesService } from './purchases.service';
         this.purchases = purchases;
         }
       )
-    this.route.params
-    .subscribe(
-      (params: Params) => {
-        this.params = params['id'];
-        this.filterData = this.params.filter(() => {
-          if (this.filterData === this.purchases['category']){
-            return
+      this.route.params
+          .subscribe(
+            (params: Params) => {
+              this.filterData = params['id'];
+              console.log(this.filterData)
+              }
+            )
           }
-        })
-      }
-    )
-  }
-}
+        }
+
+
 
 // this.route.params
 //     .subscribe(
 //       (params: Params) => {
-//         this.filterData = params['id'];
-//         console.log(this.filterData)
-
-
-
+//         this.params = params['id'];
+//         this.filterData = this.params.filter(() => {
+//           if (this.filterData === this.purchases['category']){
+//             return
