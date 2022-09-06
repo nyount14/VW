@@ -30,4 +30,9 @@ paymentMethodsChanged = new EventEmitter<PaymentMethod[]>();
   this.paymentMethodsChanged.emit(this.paymentMethods.slice());
  }
 
+ deletePaymentMethod(index: number){
+  this.paymentMethods.splice(index, 1)
+  this.paymentMethodsChanged.next(this.paymentMethods.slice());
+ }
+
 }

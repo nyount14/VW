@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Envelope } from 'src/app/models/envelope.model';
 import { Purchase } from 'src/app/models/purchase.model';
 import { PurchasesService } from 'src/app/purchases/purchases.service';
+import { EnvelopesService } from '../envelopes.service';
 
 @Component({
   selector: 'app-envelope-item',
@@ -16,6 +17,7 @@ export class EnvelopeItemComponent implements OnInit {
 
 
   constructor(private purchasesService: PurchasesService,
+              private envelopesService: EnvelopesService,
               private route: ActivatedRoute,
               private router: Router ) {}
 
@@ -26,14 +28,14 @@ export class EnvelopeItemComponent implements OnInit {
     // this.purchases = this.purchasesService.getPurchasesByCategory(this.envelope.category)
     // console.log(this.purchases)
     this.router.navigate(['/purchases', this.envelope.category])
-  };
+  }
 
   onAddMoney(){
 
   }
 
   onDelete(){
-
+    this.envelopesService.deleteEnvelope(this.index)
   }
 
 };
