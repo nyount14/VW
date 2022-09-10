@@ -40,7 +40,7 @@ import { PurchasesService } from './purchases.service';
 // this.route.params
 //     .subscribe(
 //       (params: Params) => {
-//         this.params = params['id'];
-//         this.filterData = this.params.filter(() => {
+//         this.filterData = params['id'];
+//         this.purchases = this.purchases.filter(() => {
 //           if (this.filterData === this.purchases['category']){
 //             return
