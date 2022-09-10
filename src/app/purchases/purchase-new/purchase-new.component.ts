@@ -50,7 +50,7 @@ export class PurchaseNewComponent implements OnInit {
       this.description,
       this.paymentmethod);
     this.purchasesService.addPurchase(this.newPurchase);
-    // this.router.navigate(['/purchases'])
+
 
     this.envelopes = this.envelopesService.getEnvelopes();
     for(let i = 0; i < this.envelopes.length; i++){
@@ -59,6 +59,10 @@ export class PurchaseNewComponent implements OnInit {
         // console.log(this.selectedEnvelope)
         this.newEnvelopeAmount = this.selectedEnvelope.amount -= +this.amount
         // console.log(this.newEnvelopeAmount)
+        this.selectedEnvelope.amount = this.newEnvelopeAmount
+        console.log(this.selectedEnvelope)
+        this.envelopesService.updateEnvelope(this.selectedEnvelope)
+        this.router.navigate(['/envelopes'])
       }
 
       }
