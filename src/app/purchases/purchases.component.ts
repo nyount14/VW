@@ -18,7 +18,7 @@ import { PurchasesService } from './purchases.service';
               private route: ActivatedRoute) {}
 
   ngOnInit(): void{
-    this.purchases = this.purchasesService.getPurchases();
+    this.purchases = this.purchasesService.getPurchases().reverse();
     this.purchasesService.purchasesChanged
       .subscribe(
         (purchases: Purchase[]) => {
