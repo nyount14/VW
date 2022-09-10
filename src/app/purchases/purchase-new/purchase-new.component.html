@@ -1,1 +1,56 @@
-<p>purchase-new works!</p>
+<div class="container">
+  <h1>Make a Purchase</h1>
+   <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+       <label>How much are you spending?</label>
+       <input
+         type="text"
+         class="form-control"
+         ngModel
+         name="amount"
+         required
+       />
+       <br>
+
+       <label>Which envelope is this money coming from?</label>
+       <input
+         type="text"
+         class="form-control"
+         ngModel
+         name="category"
+         required
+       />
+       <br>
+
+       <label>What is the purchase date?</label>
+       <input
+         type="date"
+         class="form-control"
+         ngModel
+         name="date"
+         required
+       />
+       <br>
+
+       <label>Provide a short description for the purchase?</label>
+       <input
+         type="text"
+         class="form-control"
+         ngModel
+         name="description"
+         required
+       />
+       <br>
+
+       <label>Which payment method are you using to make the purchase?</label>
+       <input
+         type="text"
+         class="form-control"
+         ngModel
+         name="paymentmethod"
+         required
+       />
+       <br>
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+ </form>
+ </div>

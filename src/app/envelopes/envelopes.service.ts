@@ -28,6 +28,10 @@ envelopesChanged = new Subject<Envelope[]>();
   return this.envelopes[index]
  }
 
+ getEnvelopeByCategory(category: string){
+  return this.envelopes[category];
+ }
+
  addEnvelope(envelope: Envelope){
   this.envelopes.push(envelope);
   this.envelopesChanged.next(this.envelopes.slice());

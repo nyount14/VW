@@ -12,15 +12,14 @@ export class PurchaseItemComponent implements OnInit {
   @Input() purchase: Purchase;
   @Input() index: number;
 
-  constructor(private purchaseService: PurchasesService,
+  constructor(private purchasesService: PurchasesService,
               private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onDelete(){
-    this.purchaseService.deletePurchase(this.index);
-    this.router.navigate(['/envelopes']);
+    this.purchasesService.deletePurchase(this.index);
   }
 
 }

@@ -17,7 +17,7 @@ export class PaymentMethodNewComponent implements OnInit {
   newPaymentMethod: PaymentMethod
 
   constructor(private paymentMethodsService: PaymentMethodsService,
-    private router: Router) {
+              private router: Router) {
 
 }
 
