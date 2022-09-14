@@ -17,13 +17,13 @@
 </div> -->
 
 <div class="card" style="width:400px; margin-top: 20px;">
-  <img src="assets/receipt.jpg" alt="receipt" width="500" height="500">
+  <img src="assets/receipt.jpg" alt="receipt" width="400" height="500">
   <div class="card-img-overlay">
-    <h1 class="card-title" style="text-align:center">{{ purchase.date }}</h1>
-    <h1 class="card-text" style="text-align:center">{{ purchase.category }}</h1>
-    <h1 class="card-text" style="text-align:center">{{ purchase.amount | currency }}</h1>
-    <h1 class="card-text" style="text-align:center">{{ purchase.paymentmethod }}</h1>
-    <h1 class="card-text" style="text-align:center">{{ purchase.description }}</h1>
+    <h1 class="card-title" style="text-align:center; margin-top: 100px;">{{ purchase.date }}</h1>
+    <h2 class="card-text" style="text-align:center">{{ purchase.category }}</h2>
+    <h2 class="card-text" style="text-align:center">{{ purchase.amount | currency }}</h2>
+    <h3 class="card-text" style="text-align:center">{{ purchase.paymentmethod }}</h3>
+    <h3 class="card-text" style="text-align:center">{{ purchase.description }}</h3>
     <!-- <div>
       <button class="btn btn-primary"
       (click)="onShowReciepts()"
