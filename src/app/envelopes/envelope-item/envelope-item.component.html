@@ -10,7 +10,30 @@
   </div>
 </a> -->
 
-<div>
+<div class="card" style="width:400px; margin-top: 20px;">
+  <img class="card-img-top" src="https://pixy.org/src/10/103675.png" alt="Card image">
+  <div class="card-img-overlay">
+    <h1 class="card-title" style="text-align:center">{{ envelope.category }}</h1>
+    <h1 class="card-text" style="text-align:center">{{ envelope.amount | currency }}</h1>
+    <div>
+      <button class="btn btn-primary"
+      (click)="onShowReciepts()"
+      >receipts</button>
+    </div>
+    <div>
+      <button class="btn btn-success"
+      (click)="onAddMoney()"
+      >Add money</button>
+    </div>
+    <div>
+      <button class="btn btn-danger"
+      (click)="onDelete()"
+      >Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- <div>
   <div class="list-group">
     <div class="list-group-item">
       <div class="card" style="width: 18rem;">
@@ -35,12 +58,9 @@
             (click)="onDelete()"
             >Delete</button>
           </div>
-          <div>
-            {{ purchases }}
-          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
