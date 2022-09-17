@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Envelope } from 'src/app/models/envelope.model';
 import { EnvelopesService } from '../envelopes.service';
@@ -10,7 +10,7 @@ import { EnvelopesService } from '../envelopes.service';
   styleUrls: ['./envelope-edit.component.css']
 })
 export class EnvelopeEditComponent implements OnInit {
-  @ViewChild('f') editEnvelopeForm: NgForm;
+  editEnvelopeForm: FormGroup
   envelope: Envelope;
   id: number;
 
@@ -23,17 +23,25 @@ export class EnvelopeEditComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.envelope = this.envelopesService.getEnvelope(this.id);
-          this.editEnvelopeForm.setValue({
-            category: this.envelope.category,
-            amount: this.envelope.amount
+          const envelope = this.envelopesService.getEnvelope(this.id);
+          this.editEnvelopeForm = new FormGroup({
+            'category': new FormControl(envelope.category),
+            'amount': new FormControl(envelope.amount)
           })
         }
       )
   }
 
-  onSubmit(){
 
+  onSubmit(){
+    console.log(this.editEnvelopeForm)
   }
+  // private initForm(){
+  //   const envelope = this.envelopesService.getEnvelope(this.id);
+  //   this.editEnvelopeForm = new FormGroup({
+  //     'category': new FormControl(envelope.category)
+  //     'amount': new FormControl(envelope.amount)
+  //   })
+  // }
 
 }
