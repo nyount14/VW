@@ -1,5 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Envelope } from 'src/app/models/envelope.model';
+import { EnvelopesService } from '../envelopes.service';
 
 @Component({
   selector: 'app-envelope-edit',
@@ -8,10 +11,25 @@ import { NgForm } from '@angular/forms';
 })
 export class EnvelopeEditComponent implements OnInit {
   @ViewChild('f') editEnvelopeForm: NgForm;
+  envelope: Envelope;
+  id: number;
 
-  constructor() { }
+  constructor(private envelopesService: EnvelopesService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = +params['id'];
+          this.envelope = this.envelopesService.getEnvelope(this.id);
+          this.editEnvelopeForm.setValue({
+            category: this.envelope.category,
+            amount: this.envelope.amount
+          })
+        }
+      )
   }
 
   onSubmit(){

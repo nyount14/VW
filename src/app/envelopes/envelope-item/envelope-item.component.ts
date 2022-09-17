@@ -30,7 +30,7 @@ export class EnvelopeItemComponent implements OnInit {
     this.router.navigate(['/purchases', this.envelope.category])
   }
 
-  onAddMoney(){
+  onEdit(){
     this.router.navigate(['/envelopes', this.index])
   }
 
