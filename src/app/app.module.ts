@@ -25,6 +25,7 @@ import { PurchasesService } from './purchases/purchases.service';
 import { FilterPipe } from './filter.pipe';
 import { PaymentMethodDetailComponent } from './payment-methods/payment-method-detail/payment-method-detail.component';
 import { PaymentMethodItemComponent } from './payment-methods/payment-method-item/payment-method-item.component';
+import { EnvelopeEditComponent } from './envelopes/envelope-edit/envelope-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PaymentMethodItemComponent } from './payment-methods/payment-method-ite
     EnvelopesComponent,
     EnvelopeDetailComponent,
     EnvelopeNewComponent,
+    EnvelopeEditComponent,
     PaymentMethodNewComponent,
     EnvelopeItemComponent,
     PurchasesComponent,

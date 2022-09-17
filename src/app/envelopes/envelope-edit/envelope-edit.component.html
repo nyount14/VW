@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Edit this Envelope</h1>
+   <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+       <label>New Spending Category?</label>
+       <input
+         type="text"
+         class="form-control"
+         ngModel
+         name="category"
+         required
+       />
+       <br>
+
+       <label>New amount of money in envelope?</label>
+       <input
+         type="number"
+         class="form-control"
+         ngModel
+         name="amount"
+         required
+       />
+       <br>
+
+     <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+
+ </form>
+ </div>

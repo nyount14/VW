@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EnvelopeDetailComponent } from './envelopes/envelope-detail/envelope-detail.component';
+import { EnvelopeEditComponent } from './envelopes/envelope-edit/envelope-edit.component';
 import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.component';
 import { EnvelopesComponent } from './envelopes/envelopes.component';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'envelopes', component: EnvelopesComponent },
   { path: 'envelopes/new', component: EnvelopeNewComponent },
-  { path: 'envelopes/:id', component: EnvelopeDetailComponent },
+  { path: 'envelopes/:id', component: EnvelopeEditComponent },
   { path: 'purchases', component: PurchasesComponent },
   { path: 'purchases/new', component: PurchaseNewComponent },
   { path: 'purchases/:id', component: PurchasesComponent },

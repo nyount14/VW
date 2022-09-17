@@ -31,7 +31,7 @@ export class EnvelopeItemComponent implements OnInit {
   }
 
   onAddMoney(){
-
+    this.router.navigate(['/envelopes', this.index])
   }
 
   onDelete(){
