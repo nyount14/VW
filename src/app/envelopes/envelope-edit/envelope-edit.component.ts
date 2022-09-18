@@ -13,6 +13,9 @@ export class EnvelopeEditComponent implements OnInit {
   editEnvelopeForm: FormGroup
   envelope: Envelope;
   id: number;
+  category: string;
+  amount: number;
+  updatedEnvelope: Envelope;
 
   constructor(private envelopesService: EnvelopesService,
               private route: ActivatedRoute,
@@ -23,10 +26,10 @@ export class EnvelopeEditComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          const envelope = this.envelopesService.getEnvelope(this.id);
+          this.envelope = this.envelopesService.getEnvelope(this.id);
           this.editEnvelopeForm = new FormGroup({
-            'category': new FormControl(envelope.category),
-            'amount': new FormControl(envelope.amount)
+            'category': new FormControl(this.envelope.category),
+            'amount': new FormControl(this.envelope.amount)
           })
         }
       )
@@ -34,14 +37,28 @@ export class EnvelopeEditComponent implements OnInit {
 
 
   onSubmit(){
-    console.log(this.editEnvelopeForm)
+    this.category = this.editEnvelopeForm.value.category;
+    this.amount = this.editEnvelopeForm.value.amount;
+    console.log(this.amount)
+    this.updatedEnvelope = new Envelope(this.category, this.amount);
+    this.envelopesService.updateEnvelope(this.updatedEnvelope);
+    this.router.navigate(['/envelopes'])
   }
-  // private initForm(){
-  //   const envelope = this.envelopesService.getEnvelope(this.id);
-  //   this.editEnvelopeForm = new FormGroup({
-  //     'category': new FormControl(envelope.category)
-  //     'amount': new FormControl(envelope.amount)
-  //   })
-  // }
+
+  // this.envelopes = this.envelopesService.getEnvelopes();
+  // for(let i = 0; i < this.envelopes.length; i++){
+  //   if(this.envelopes[i].category == this.category){
+  //     this.selectedEnvelope = this.envelopes[i]
+  //     // console.log(this.selectedEnvelope)
+  //     this.newEnvelopeAmount = this.selectedEnvelope.amount -= +this.amount
+  //     // console.log(this.newEnvelopeAmount)
+  //     this.selectedEnvelope.amount = this.newEnvelopeAmount
+  //     console.log(this.selectedEnvelope)
+  //     this.envelopesService.updateEnvelope(this.selectedEnvelope)
+  //     this.router.navigate(['/envelopes'])
+  //   }
+
+
+
 
 }
