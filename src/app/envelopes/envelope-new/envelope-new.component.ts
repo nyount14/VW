@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -18,25 +19,25 @@ export class EnvelopeNewComponent implements OnInit {
   newEnvelope: Envelope;
 
   constructor(private envelopesService: EnvelopesService,
-              private router: Router) {
-    console.log()
-   }
+              private router: Router,
+              private http: HttpClient) {}
 
   ngOnInit(): void {
   }
 
-  // onAddEnvelope() {
-  //   this.newEnvelope = new Envelope(this.id, this.category, this.amount);
-  //   this.envelopesService.addEnvelope(this.newEnvelope);
-  //   this.router.navigate(['/envelopes'])
-  //   };
-
   onSubmit(){
     this.category = this.newEnvelopeForm.value.category;
     this.amount = this.newEnvelopeForm.value.amount;
-    // this.newEnvelopeForm.reset();
     this.newEnvelope = new Envelope(this.category, this.amount);
-    this.envelopesService.addEnvelope(this.newEnvelope);
+    this.http.post(
+      'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
+      this.newEnvelope
+    ).subscribe(responseData => {
+      console.log(responseData)
+    });
+
+
+    // this.envelopesService.addEnvelope(this.newEnvelope);
     this.router.navigate(['/envelopes'])
   }
 

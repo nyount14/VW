@@ -31,6 +31,7 @@
 
   <div class="row">
     <div class="col-xs-12">
+      <p *ngIf="envelopes.length < 1">Please create an Envelope</p>
       <app-envelope-item
         *ngFor="let envelopeEl of envelopes; let i = index"
         [envelope]="envelopeEl"

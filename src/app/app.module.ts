@@ -26,6 +26,7 @@ import { FilterPipe } from './filter.pipe';
 import { PaymentMethodDetailComponent } from './payment-methods/payment-method-detail/payment-method-detail.component';
 import { PaymentMethodItemComponent } from './payment-methods/payment-method-item/payment-method-item.component';
 import { EnvelopeEditComponent } from './envelopes/envelope-edit/envelope-edit.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { EnvelopeEditComponent } from './envelopes/envelope-edit/envelope-edit.c
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [EnvelopesService, PurchasesService, PaymentMethodsService],
   bootstrap: [AppComponent]
