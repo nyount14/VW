@@ -37,6 +37,11 @@ envelopesChanged = new Subject<Envelope[]>();
   this.envelopesChanged.next(this.envelopes.slice())
  }
 
+ updateEnvelope1(index: number, newEnvelope: Envelope) {
+  this.envelopes[index] = newEnvelope;
+  this.envelopesChanged.next(this.envelopes.slice());
+}
+
  deleteEnvelope(index: number){
   this.envelopes.splice(index, 1)
   this.envelopesChanged.next(this.envelopes.slice());

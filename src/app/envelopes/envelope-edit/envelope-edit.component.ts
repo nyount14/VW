@@ -41,7 +41,7 @@ export class EnvelopeEditComponent implements OnInit {
     this.amount = this.editEnvelopeForm.value.amount;
     console.log(this.amount)
     this.updatedEnvelope = new Envelope(this.category, this.amount);
-    this.envelopesService.updateEnvelope(this.updatedEnvelope);
+    this.envelopesService.updateEnvelope1(this.id, this.updatedEnvelope);
     this.router.navigate(['/envelopes'])
   }
 
