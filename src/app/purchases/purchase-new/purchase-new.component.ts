@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { EnvelopesService } from 'src/app/envelopes/envelopes.service';
 import { Envelope } from 'src/app/models/envelope.model';
 import { Purchase } from 'src/app/models/purchase.model';
+import { PaymentMethod } from 'src/app/models/paymentmethod.model';
 import { PurchasesService } from '../purchases.service';
+import { PaymentMethodsService } from 'src/app/payment-methods/payment-methods.service';
 
 @Component({
   selector: 'app-purchase-new',
@@ -17,6 +19,7 @@ export class PurchaseNewComponent implements OnInit {
   newEnvelopeAmount: number
   selectedEnvelope: Envelope;
   envelopes: Envelope[];
+  paymentMethods: PaymentMethod[];
 
 
   purchases: Purchase[];
@@ -29,10 +32,12 @@ export class PurchaseNewComponent implements OnInit {
 
   constructor(private purchasesService: PurchasesService,
               private envelopesService: EnvelopesService,
+              private paymentMethodsService: PaymentMethodsService,
               private router: Router ) { }
 
   ngOnInit(): void {
-
+    this.envelopes = this.envelopesService.getEnvelopes();
+    this.paymentMethods = this.paymentMethodsService.getPaymentMethods();
       }
 
 
