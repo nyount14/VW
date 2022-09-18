@@ -41,7 +41,7 @@ export class EnvelopeDetailComponent implements OnInit {
   onSubtract(){
     this.envelope.amount = this.adjustment
     console.log(this.envelope.amount)
-    this.envelopesService.updateEnvelope(this.envelope)
+    // this.envelopesService.updateEnvelope1(this.envelope.amount)
   }
 
   onAdd(){

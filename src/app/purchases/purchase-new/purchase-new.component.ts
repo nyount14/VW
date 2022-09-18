@@ -56,12 +56,8 @@ export class PurchaseNewComponent implements OnInit {
     for(let i = 0; i < this.envelopes.length; i++){
       if(this.envelopes[i].category == this.category){
         this.selectedEnvelope = this.envelopes[i]
-        // console.log(this.selectedEnvelope)
         this.newEnvelopeAmount = this.selectedEnvelope.amount -= +this.amount
-        // console.log(this.newEnvelopeAmount)
         this.selectedEnvelope.amount = this.newEnvelopeAmount
-        console.log(this.selectedEnvelope)
-        this.envelopesService.updateEnvelope(this.selectedEnvelope)
         this.router.navigate(['/envelopes'])
       }
 
