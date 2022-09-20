@@ -15,30 +15,21 @@ export class EnvelopesComponent implements OnInit {
   envelopes: Envelope[];
   category: string;
   amount: number;
+  isFetching = false
 
 
 
   constructor(private envelopesService: EnvelopesService,
               private router: Router,
-              private http: HttpClient) {
-    console.log()
-   }
+              private http: HttpClient) {}
 
-  ngOnInit(): void{
-    this.http
-    .get<Envelope>('https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json')
-    .pipe(map((responseObject) => {
-      const responseArray: Envelope[] = [];
-      for (const key in responseObject ) {
-        if (responseObject.hasOwnProperty(key))
-          responseArray.push({ ...responseObject[key], id: key });
-      }
-      return responseArray;
-    })
-    )
-    .subscribe(envelopes => {
+  ngOnInit() {
+    this.isFetching = true
+    this.envelopesService.getEnvelopes().subscribe(envelopes => {
+      this.isFetching = false
       this.envelopes = envelopes
     });
+
     // this.envelopes = this.envelopesService.getEnvelopes();
     // this.envelopesService.envelopesChanged
     //   .subscribe(
@@ -47,4 +38,15 @@ export class EnvelopesComponent implements OnInit {
     //     }
     //   )
   }
+
+  onDeleteAll(){
+    this.envelopesService.deleteEnvelopes().subscribe(() => {
+      this.envelopes = [];
+    })
+  }
+
+  private getEnvelopes(){
+    this.envelopesService.getEnvelopes()
+  }
+
 }

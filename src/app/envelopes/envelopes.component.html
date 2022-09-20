@@ -1,5 +1,6 @@
 <div class="container" style="margin-top:20px;">
   <h1>All Envelopes</h1>
+  <button (click)="onDeleteAll()">Delete All</button>
 
   <!-- <div class="list-group">
     <a
@@ -31,11 +32,17 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <p *ngIf="envelopes.length < 1">Please create an Envelope</p>
-      <app-envelope-item
+      <p *ngIf="envelopes.length < 1 && !isFetching">Please create an Envelope</p>
+      <div *ngIf="envelopes.length >= 1 && !isFetching">
+        <app-envelope-item
         *ngFor="let envelopeEl of envelopes; let i = index"
         [envelope]="envelopeEl"
-        [index]="i"></app-envelope-item>
+        [index]="i">
+        </app-envelope-item>
+      </div>
+      <div *ngIf="isFetching">
+        ...IsLoading
+      </div>
     </div>
   </div>
 </div>

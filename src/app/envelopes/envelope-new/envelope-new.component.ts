@@ -28,16 +28,7 @@ export class EnvelopeNewComponent implements OnInit {
   onSubmit(){
     this.category = this.newEnvelopeForm.value.category;
     this.amount = this.newEnvelopeForm.value.amount;
-    this.newEnvelope = new Envelope(this.category, this.amount);
-    this.http.post(
-      'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
-      this.newEnvelope
-    ).subscribe(responseData => {
-      console.log(responseData)
-    });
-
-
-    // this.envelopesService.addEnvelope(this.newEnvelope);
+    this.envelopesService.addEnvelope(this.category, this.amount);
     this.router.navigate(['/envelopes'])
   }
 
