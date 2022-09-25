@@ -26,11 +26,10 @@ export class EnvelopesService {
     ).subscribe(responseData => {
       console.log(responseData)
     });
-
   }
 
   getEnvelopes() {
-    return this.envelopes.slice();
+    // return this.envelopes.slice();
     return this.http
       .get<Envelope>('https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json')
       .pipe(map((responseObject) => {
@@ -39,51 +38,36 @@ export class EnvelopesService {
           if (responseObject.hasOwnProperty(key))
             responseArray.push({ ...responseObject[key], id: key });
         }
-        return responseArray;
+        this.envelopes = responseArray;
+        return this.envelopes
       })
       )
-  }
-  // getEnvelopes(){
-  //   return this.http
-  //     .get<Envelope>('https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json')
-  //     .pipe(map((responseObject) => {
-  //       const responseArray: Envelope[] = [];
-  //       for (const key in responseObject ) {
-  //         if (responseObject.hasOwnProperty(key))
-  //           responseArray.push({ ...responseObject[key], id: key });
-  //       }
-  //       return responseArray;
-  //     })
-  //     )
+    }
 
+
+
+  // deleteEnvelopes(){
+  //   return this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/.json')
   // }
 
-
-
-  deleteEnvelopes(){
-    return this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/.json')
+  deleteEnvelope(id: string){
+    for(let i = 0; i < this.envelopes.length; i++){
+      if(this.envelopes[i].id === id){
+        this.envelopes.splice(i, 1)
+        this.envelopesChanged.next(this.envelopes.slice());
+      }
+      this.http.put(
+        'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
+        this.envelopes
+      ).subscribe(responseData => {
+        console.log("returned data after put request", responseData)
+      });
+      }
   }
 
-  // overrideEnvelopes(envelopes: Envelope[]) {
-  //   this.http.put(
-  //     'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
-  //     envelopes
-  //   )
-  //   .subscribe(response => {
-  //     console.log(response);
-  //   });
+  // getEnvelope(index: number){
+  //   // return this.envelopes[index]
   // }
-
-  deleteEnvelope(index: number){
-    // this.envelopes.splice(index, 1)
-    // this.envelopesChanged.next(this.envelopes.slice());
-  }
-
-
-
-  getEnvelope(index: number){
-    // return this.envelopes[index]
-  }
 
 
 

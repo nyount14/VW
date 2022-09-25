@@ -1,38 +1,78 @@
-import { EventEmitter } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { map } from "rxjs/operators";
+import { Subject } from "rxjs";
 import { PaymentMethod } from "../models/paymentmethod.model";
+import { Router } from "@angular/router";
 
 
+@Injectable({providedIn: 'root'})
 export class PaymentMethodsService {
-paymentMethodsChanged = new EventEmitter<PaymentMethod[]>();
-  private paymentMethods: PaymentMethod[] = [
-    {
-      method: 'cash',
-    },
-    {
-      method: 'amazon card',
-    },
-    {
-      method: 'freedom card',
-    },
-  ]
 
- getPaymentMethods() {
-  return this.paymentMethods.slice();
- }
+constructor(private http: HttpClient,
+            private router: Router,){
 
- getPaymentMethod(index: number){
-   return this.paymentMethods[index]
- }
+}
 
- addPaymentMethod(paymentMethod: PaymentMethod){
+paymentMethodsChanged = new Subject<PaymentMethod[]>();
+private paymentMethods: PaymentMethod[] = []
+
+addPaymentMethod(paymentMethod: PaymentMethod){
   this.paymentMethods.push(paymentMethod);
-  this.paymentMethodsChanged.emit(this.paymentMethods.slice());
- }
-
- deletePaymentMethod(index: number){
-  this.paymentMethods.splice(index, 1)
   this.paymentMethodsChanged.next(this.paymentMethods.slice());
- }
+  this.http.post(
+    'https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods.json',
+    paymentMethod
+  ).subscribe(responseData => {
+    console.log(responseData)
+  });
+  }
+
+  getPaymentMethods() {
+    // return this.envelopes.slice();
+    return this.http
+      .get<PaymentMethod>('https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods.json')
+      .pipe(map((responseObject) => {
+        const responseArray: PaymentMethod[] = [];
+        for (const key in responseObject ) {
+          if (responseObject.hasOwnProperty(key))
+            responseArray.push({ ...responseObject[key], id: key });
+        }
+        this.paymentMethods = responseArray;
+        return this.paymentMethods
+      })
+      )
+    }
+
+  deletePaymentMethod(id: string){
+    for(let i = 0; i < this.paymentMethods.length; i++){
+      if(this.paymentMethods[i].id === id){
+        this.paymentMethods.splice(i, 1)
+        this.paymentMethodsChanged.next(this.paymentMethods.slice());
+      }
+      this.http.put(
+        'https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods.json',
+        this.paymentMethods
+      ).subscribe(responseData => {
+        console.log("returned data after put request", responseData)
+      });
+      }
+  }
+
+//  getPaymentMethods() {
+//   return this.paymentMethods.slice();
+//  }
+
+
+//  getPaymentMethod(index: number){
+//    return this.paymentMethods[index]
+//  }
+
+
+
+//  deletePaymentMethod(index: number){
+//   this.paymentMethods.splice(index, 1)
+//   this.paymentMethodsChanged.next(this.paymentMethods.slice());
+//  }
 
 }

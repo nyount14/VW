@@ -37,7 +37,7 @@ export class PurchaseNewComponent implements OnInit {
 
   ngOnInit(): void {
     // this.envelopes = this.envelopesService.getEnvelopes();
-    this.paymentMethods = this.paymentMethodsService.getPaymentMethods();
+    // this.paymentMethods = this.paymentMethodsService.getPaymentMethods();
       }
 
 

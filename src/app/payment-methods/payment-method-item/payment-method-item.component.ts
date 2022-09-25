@@ -28,7 +28,7 @@ export class PaymentMethodItemComponent implements OnInit {
   };
 
   onDelete(){
-    this.paymentMethodService.deletePaymentMethod(this.index)
+    this.paymentMethodService.deletePaymentMethod(this.paymentMethod.id)
   }
 
 }

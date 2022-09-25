@@ -1,34 +1,6 @@
 <div class="container" style="margin-top:20px;">
   <h1>All Envelopes</h1>
-  <button (click)="onDeleteAll()">Delete All</button>
-
-  <!-- <div class="list-group">
-    <a
-      [routerLink]="['/envelopes', envelope.category]"
-      class="list-group-item"
-      *ngFor="let envelope of envelopes;">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{ envelope.category }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ envelope.amount }}</h6>
-        </div>
-        <div>
-          <button btn-btn primary (click)="onShowReciepts()">receipts</button>
-        </div>
-        <div>
-          <button btn-btn primary (click)="onAddMoney()">Add money</button>
-        </div>
-      </div>
-    </a>
-  </div> -->
-
-
-
-
-  <!-- <img src="https://pixy.org/src/10/103675.png" alt="Envelope" width="32" height="32">
-  <hr> -->
-
-
+  <button (click)="fetchEnvelopes()">Fetch Envelopes</button>
 
   <div class="row">
     <div class="col-xs-12">
@@ -47,6 +19,4 @@
         <button class="btn btn-danger" (click)="onHandleError()"></button>
       </div>
     </div>
-  </div>
-</div>
 

@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,8 +18,7 @@ export class EnvelopeNewComponent implements OnInit {
   newEnvelope: Envelope;
 
   constructor(private envelopesService: EnvelopesService,
-              private router: Router,
-              private http: HttpClient) {}
+              private router: Router) {}
 
   ngOnInit(): void {
   }
