@@ -26,7 +26,7 @@ export class EnvelopeEditComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.envelope = this.envelopesService.getEnvelope(this.id);
+          // this.envelope = this.envelopesService.getEnvelope(this.id);
           this.editEnvelopeForm = new FormGroup({
             'category': new FormControl(this.envelope.category),
             'amount': new FormControl(this.envelope.amount)

@@ -33,7 +33,7 @@ export class EnvelopeDetailComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.envelope = this.envelopesService.getEnvelope(this.id);
+          // this.envelope = this.envelopesService.getEnvelope(this.id);
         }
       )
   }

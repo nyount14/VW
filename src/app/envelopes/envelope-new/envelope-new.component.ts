@@ -28,7 +28,8 @@ export class EnvelopeNewComponent implements OnInit {
   onSubmit(){
     this.category = this.newEnvelopeForm.value.category;
     this.amount = this.newEnvelopeForm.value.amount;
-    this.envelopesService.addEnvelope(this.category, this.amount);
+    this.newEnvelope = new Envelope(this.category, this.amount)
+    this.envelopesService.addEnvelope(this.newEnvelope);
     this.router.navigate(['/envelopes'])
   }
 

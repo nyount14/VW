@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Envelope } from '../models/envelope.model';
 import { EnvelopesService } from './envelopes.service';
 import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-envelopes',
@@ -12,10 +13,13 @@ import { map } from 'rxjs/operators';
 })
 export class EnvelopesComponent implements OnInit {
 
+  envelopesChanged = new Subject<Envelope[]>();
   envelopes: Envelope[];
   category: string;
   amount: number;
   isFetching = false
+  error = ""
+  fbIds: string[];
 
 
 
@@ -24,26 +28,37 @@ export class EnvelopesComponent implements OnInit {
               private http: HttpClient) {}
 
   ngOnInit() {
-    this.isFetching = true
-    this.envelopesService.getEnvelopes().subscribe(envelopes => {
-      this.isFetching = false
-      this.envelopes = envelopes
-    });
+    // this.isFetching = true
+    // this.envelopesService.getEnvelopes().subscribe(envelopes => {
+    //   this.isFetching = false;
+    //   this.envelopes = envelopes;
+    //   this.envelopesChanged.next(this.envelopes.slice());
+    // }, error => {
+    //   this.isFetching = false;
+    //   this.error = error.message;
+    // });
 
-    // this.envelopes = this.envelopesService.getEnvelopes();
-    // this.envelopesService.envelopesChanged
-    //   .subscribe(
-    //     (envelopes: Envelope[]) => {
-    //       this.envelopes = envelopes;
-    //     }
-    //   )
+    // this.envelopes = this.envelopesService.getEnvelopes()
+    this.envelopesService.envelopesChanged
+      .subscribe(
+        (envelopes: Envelope[]) => {
+          this.envelopes = envelopes;
+        }
+      )
   }
 
-  onDeleteAll(){
+  onDeleteAll() {
     this.envelopesService.deleteEnvelopes().subscribe(() => {
-      this.envelopes = [];
+      this.envelopes
     })
   }
+
+  onHandleError() {
+    this.error = null
+  }
+
+
+
 
   private getEnvelopes(){
     this.envelopesService.getEnvelopes()
