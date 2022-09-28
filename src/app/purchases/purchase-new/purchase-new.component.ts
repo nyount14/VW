@@ -57,15 +57,16 @@ export class PurchaseNewComponent implements OnInit {
     this.purchasesService.addPurchase(this.newPurchase);
 
 
-    // this.envelopes = this.envelopesService.getEnvelopes();
-    for(let i = 0; i < this.envelopes.length; i++){
-      if(this.envelopes[i].category == this.category){
-        this.selectedEnvelope = this.envelopes[i]
-        this.newEnvelopeAmount = this.selectedEnvelope.amount -= +this.amount
-        this.selectedEnvelope.amount = this.newEnvelopeAmount
-        this.router.navigate(['/envelopes'])
-      }
-
-      }
-    }
-    }
+    this.envelopesService.getEnvelopes().subscribe(envelopes => {
+      this.envelopes = envelopes
+      for(let i = 0; i < this.envelopes.length; i++){
+        if(this.envelopes[i].category == this.category){
+          this.selectedEnvelope = this.envelopes[i]
+          this.newEnvelopeAmount = this.selectedEnvelope.amount -= +this.amount
+          this.selectedEnvelope.amount = this.newEnvelopeAmount
+          this.router.navigate(['/envelopes'])
+        }
+       }
+    })
+  }
+}
