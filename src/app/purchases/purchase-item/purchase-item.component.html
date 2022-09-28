@@ -1,25 +1,7 @@
-<!-- <div class="list-group-item">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body"
-      style="cursor: pointer;"
-
-      class="list-group-item clearfix">
-      <h5 class="card-title">{{ purchase.amount | currency }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{ purchase.category }}</h6>
-      <h6 class="card-subtitle mb-2 text-muted">{{ purchase.date }}</h6>
-      <h6 class="card-subtitle mb-2 text-muted">{{ purchase.description }}</h6>
-      <h6 class="card-subtitle mb-2 text-muted">{{ purchase.paymentmethod }}</h6>
-      <div>
-        <button class="btn btn-primary" (click)="onDelete()">Delete</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<div class="card" style="width:400px; margin-top: 20px;">
-  <img src="assets/receipt1.jpg" alt="receipt" width="400" height="500">
+<div class="card" style="width:400px; margin-top: 50px;">
+  <img class="card-img-top" src="assets/receipt1.jpg" alt="Card image">
   <div class="card-img-overlay">
-    <h1 class="card-title" style="text-align:center; margin-top: 130px;">{{ purchase.date }}</h1>
+    <h1 class="card-title" style="text-align:center; margin-top: 150px;">{{ purchase.date }}</h1>
     <h2 class="card-text" style="text-align:center">{{ purchase.category }}</h2>
     <h2 class="card-text" style="text-align:center">{{ purchase.amount | currency }}</h2>
     <h3 class="card-text" style="text-align:center">{{ purchase.paymentmethod }}</h3>
@@ -31,5 +13,3 @@
     </div>
   </div>
 </div>
-
-

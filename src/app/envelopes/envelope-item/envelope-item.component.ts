@@ -8,7 +8,7 @@ import { EnvelopesService } from '../envelopes.service';
 @Component({
   selector: 'app-envelope-item',
   templateUrl: './envelope-item.component.html',
-  styleUrls: ['./envelope-item.component.css']
+  styleUrls: ['./envelope-item.component.css'],
 })
 export class EnvelopeItemComponent implements OnInit {
   @Input() envelope: Envelope;

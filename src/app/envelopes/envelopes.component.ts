@@ -49,7 +49,7 @@ export class EnvelopesComponent implements OnInit {
   fetchEnvelopes(){
     this.envelopesService.getEnvelopes().subscribe(envelopes => {
       this.isFetching = false;
-      this.envelopes = envelopes;
+      this.envelopes = envelopes.reverse();
       this.envelopesChanged.next(this.envelopes.slice());
     }, error => {
       this.isFetching = false;

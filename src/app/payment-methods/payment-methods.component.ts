@@ -47,7 +47,7 @@ export class PaymentMethodsComponent implements OnInit {
   fetchPaymentMethods() {
     this.paymentMethodsService.getPaymentMethods().subscribe(paymentMethods => {
       this.isFetching = false;
-      this.paymentMethods = paymentMethods;
+      this.paymentMethods = paymentMethods.reverse();
       this.paymentMethodsChanged.next(this.paymentMethods.slice());
     }, error => {
       this.isFetching = false;
