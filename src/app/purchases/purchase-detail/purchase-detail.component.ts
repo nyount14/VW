@@ -31,7 +31,7 @@ export class PurchaseDetailComponent implements OnInit {
     .subscribe(
       (params: Params) => {
         this.category = params['id'];
-        this.purchases = this.purchasesService.getPurchasesByCategory(this.category);
+        // this.purchases = this.purchasesService.getPurchasesByCategory(this.category);
       }
     )
   }

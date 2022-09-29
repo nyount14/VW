@@ -9,5 +9,6 @@ export class Purchase {
     public date: string,
     public description: string,
     public paymentmethod: string,
+    public id?: string
     ) {}
 };

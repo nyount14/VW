@@ -36,9 +36,13 @@ export class PurchaseNewComponent implements OnInit {
               private router: Router ) { }
 
   ngOnInit(): void {
-    // this.envelopes = this.envelopesService.getEnvelopes();
-    // this.paymentMethods = this.paymentMethodsService.getPaymentMethods();
-      }
+    this.envelopesService.getEnvelopes().subscribe(envelopes => {
+      this.envelopes = envelopes
+    })
+    this.paymentMethodsService.getPaymentMethods().subscribe(paymentMethods => {
+      this.paymentMethods = paymentMethods
+    })
+  }
 
 
   onSubmit(){
@@ -56,17 +60,16 @@ export class PurchaseNewComponent implements OnInit {
       this.paymentmethod);
     this.purchasesService.addPurchase(this.newPurchase);
 
-
-    this.envelopesService.getEnvelopes().subscribe(envelopes => {
-      this.envelopes = envelopes
-      for(let i = 0; i < this.envelopes.length; i++){
-        if(this.envelopes[i].category == this.category){
-          this.selectedEnvelope = this.envelopes[i]
-          this.newEnvelopeAmount = this.selectedEnvelope.amount -= +this.amount
-          this.selectedEnvelope.amount = this.newEnvelopeAmount
-          this.router.navigate(['/envelopes'])
+    for(let i = 0; i < this.envelopes.length; i++){
+      if(this.envelopes[i].category == this.category){
+        this.selectedEnvelope = this.envelopes[i]
+        this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
+        this.selectedEnvelope.amount = this.newEnvelopeAmount
+        this.envelopesService.updateEnvelope(this.selectedEnvelope)
         }
-       }
-    })
+      }
+      this.router.navigate(['/envelopes'])
+      console.log(this.envelopes)
+      // this is pulling the envelopes.  start from here tomorrow to see how I can access the right envelope
+    }
   }
-}

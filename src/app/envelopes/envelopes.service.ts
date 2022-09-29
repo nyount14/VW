@@ -70,13 +70,13 @@ export class EnvelopesService {
   // }
 
 
-
-
-
-
-  updateEnvelope1(index: number, newEnvelope: Envelope) {
-    // this.envelopes[index] = newEnvelope;
-    // this.envelopesChanged.next(this.envelopes.slice());
+  updateEnvelope(updatedEnvelope: Envelope) {
+    this.http.put(
+      'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
+      this.envelopes
+    ).subscribe(responseData => {
+      console.log("returned data after put request", responseData)
+    });
   }
 
 
