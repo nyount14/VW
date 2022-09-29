@@ -69,7 +69,7 @@ export class PurchaseNewComponent implements OnInit {
         }
       }
       this.router.navigate(['/envelopes'])
-      console.log(this.envelopes)
+      console.log(this.selectedEnvelope)
       // this is pulling the envelopes.  start from here tomorrow to see how I can access the right envelope
     }
   }
