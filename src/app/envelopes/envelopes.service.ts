@@ -65,12 +65,18 @@ export class EnvelopesService {
       }
   }
 
-  // getEnvelope(index: number){
-  //   // return this.envelopes[index]
-  // }
+  getEnvelope(index: number){
+    return this.envelopes[index]
+  }
 
 
-  updateEnvelope(updatedEnvelope: Envelope) {
+  updateEnvelope(id: string, updatedEnvelope: Envelope) {
+    for(let i = 0; i < this.envelopes.length; i++){
+      if(this.envelopes[i].id === id){
+        this.envelopes.splice(i, 1, updatedEnvelope)
+        this.envelopesChanged.next(this.envelopes.slice());
+      }
+    }
     this.http.put(
       'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
       this.envelopes
@@ -78,7 +84,4 @@ export class EnvelopesService {
       console.log("returned data after put request", responseData)
     });
   }
-
-
-
 }

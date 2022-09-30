@@ -35,7 +35,7 @@ export class PurchaseNewComponent implements OnInit {
               private paymentMethodsService: PaymentMethodsService,
               private router: Router ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.envelopesService.getEnvelopes().subscribe(envelopes => {
       this.envelopes = envelopes
     })
@@ -52,6 +52,7 @@ export class PurchaseNewComponent implements OnInit {
     this.description = this.newPurchaseForm.value.description;
     this.paymentmethod = this.newPurchaseForm.value.paymentmethod;
     // this.newEnvelopeForm.reset();
+    console.log(this.newPurchaseForm)
     this.newPurchase = new Purchase(
       this.amount,
       this.category,
@@ -65,7 +66,7 @@ export class PurchaseNewComponent implements OnInit {
         this.selectedEnvelope = this.envelopes[i]
         this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
         this.selectedEnvelope.amount = this.newEnvelopeAmount
-        this.envelopesService.updateEnvelope(this.selectedEnvelope)
+        this.envelopesService.updateEnvelope(this.selectedEnvelope.id, this.selectedEnvelope)
         }
       }
       this.router.navigate(['/envelopes'])
