@@ -9,13 +9,13 @@ import { Router } from "@angular/router";
 @Injectable({providedIn: 'root'})
 export class EnvelopesService {
 
+  envelopesChanged = new Subject<Envelope[]>();
+  private envelopes: Envelope[] = []
+
   constructor(private http: HttpClient,
               private router: Router,){
 
   }
-
-  envelopesChanged = new Subject<Envelope[]>();
-  private envelopes: Envelope[] = []
 
   addEnvelope(envelope: Envelope){
     this.envelopes.push(envelope);
@@ -39,9 +39,15 @@ export class EnvelopesService {
             responseArray.push({ ...responseObject[key], id: key });
         }
         this.envelopes = responseArray;
+        this.envelopesChanged.next(this.envelopes.slice());
         return this.envelopes
       })
       )
+    }
+
+    overrideEnvelopes(envelopes: Envelope[]) {
+      this.envelopes = envelopes;
+      this.envelopesChanged.next(this.envelopes.slice());
     }
 
 

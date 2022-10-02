@@ -7,6 +7,7 @@ import { Purchase } from 'src/app/models/purchase.model';
 import { PaymentMethod } from 'src/app/models/paymentmethod.model';
 import { PurchasesService } from '../purchases.service';
 import { PaymentMethodsService } from 'src/app/payment-methods/payment-methods.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-purchase-new',
@@ -16,6 +17,7 @@ import { PaymentMethodsService } from 'src/app/payment-methods/payment-methods.s
 export class PurchaseNewComponent implements OnInit {
 
   @ViewChild('f') newPurchaseForm: NgForm;
+  envelopesChanged = new Subject<Envelope[]>();
   newEnvelopeAmount: number
   selectedEnvelope: Envelope;
   envelopes: Envelope[];
@@ -67,10 +69,19 @@ export class PurchaseNewComponent implements OnInit {
         this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
         this.selectedEnvelope.amount = this.newEnvelopeAmount
         this.envelopesService.updateEnvelope(this.selectedEnvelope.id, this.selectedEnvelope)
+        this.fetchEnvelopes();
         }
       }
       this.router.navigate(['/envelopes'])
       console.log(this.selectedEnvelope)
       // this is pulling the envelopes.  start from here tomorrow to see how I can access the right envelope
+    }
+
+    fetchEnvelopes(){
+      this.envelopesService.getEnvelopes().subscribe(envelopes => {
+      this.envelopes = envelopes.reverse();
+      this.envelopesChanged.next(this.envelopes.slice());
+      });
+
     }
   }

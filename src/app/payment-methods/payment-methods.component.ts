@@ -25,10 +25,11 @@ export class PaymentMethodsComponent implements OnInit {
               private http: HttpClient) {}
 
   ngOnInit() {
+    this.fetchPaymentMethods();
     this.isFetching = true
     this.paymentMethodsService.getPaymentMethods().subscribe(paymentMethods => {
       this.isFetching = false;
-      this.paymentMethods = paymentMethods;
+      this.paymentMethods = paymentMethods.reverse();
       this.paymentMethodsChanged.next(this.paymentMethods.slice());
     }, error => {
       this.isFetching = false;

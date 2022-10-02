@@ -23,51 +23,51 @@ export class EnvelopesComponent implements OnInit {
 
 
   constructor(private envelopesService: EnvelopesService,
-              private router: Router,
-              private http: HttpClient) {}
+    private router: Router,
+    private http: HttpClient) {}
 
-  ngOnInit() {
-    this.isFetching = true
-    this.envelopesService.getEnvelopes().subscribe(envelopes => {
-      this.isFetching = false;
-      this.envelopes = envelopes;
-      this.envelopesChanged.next(this.envelopes.slice());
-    }, error => {
-      this.isFetching = false;
-      this.error = error.message;
+ngOnInit() {
+  this.fetchEnvelopes();
+  this.isFetching = true
+  this.envelopesService.getEnvelopes().subscribe(envelopes => {
+  this.isFetching = false;
+  this.envelopes = envelopes.reverse();
+  this.envelopesChanged.next(this.envelopes.slice());
+  }, error => {
+    this.isFetching = false;
+    this.error = error.message;
     });
 
-    // this.envelopes = this.envelopesService.getEnvelopes()
-    // this.envelopesService.envelopesChanged
-    //   .subscribe(
-    //     (envelopes: Envelope[]) => {
-    //       this.envelopes = envelopes;
-    //     }
-    //   )
-  }
+// this.envelopes = this.envelopesService.getEnvelopes()
+// this.envelopesService.envelopesChanged
+//   .subscribe(
+//     (envelopes: Envelope[]) => {
+//       this.envelopes = envelopes;
+//     }
+//   )
+}
 
-  fetchEnvelopes(){
-    this.envelopesService.getEnvelopes().subscribe(envelopes => {
-      this.isFetching = false;
-      this.envelopes = envelopes.reverse();
-      this.envelopesChanged.next(this.envelopes.slice());
-    }, error => {
-      this.isFetching = false;
-      this.error = error.message;
-    });
+fetchEnvelopes(){
+  this.envelopesService.getEnvelopes().subscribe(envelopes => {
+  console.log(envelopes)
+  this.isFetching = false;
+  this.envelopes = envelopes.reverse();
+  this.envelopesChanged.next(this.envelopes.slice());
+  }, error => {
+    this.isFetching = false;
+    this.error = error.message;
+  });
 
-  }
+}
 
-  // onDeleteAll() {
-  //   this.envelopesService.deleteEnvelopes().subscribe(() => {
-  //     this.envelopes
-  //   })
-  // }
+// onDeleteAll() {
+//   this.envelopesService.deleteEnvelopes().subscribe(() => {
+//     this.envelopes
+//   })
+// }
 
-  onHandleError() {
-    this.error = null
-  }
-
-
+onHandleError() {
+this.error = null
+}
 
 }
