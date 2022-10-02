@@ -17,7 +17,9 @@
          class="form-control"
          ngModel
          name="category"
+         value=""
          required>
+         <option [defaultSelected]=true [value]="default" >{{default}}</option>
          <option *ngFor ="let envelope of envelopes">{{ envelope.category }}</option>
        </select>
        <br>
@@ -49,6 +51,7 @@
          ngModel
          name="paymentmethod"
          required>
+         <option [defaultSelected]=true [value]="default" >{{default}}</option>
          <option *ngFor ="let pm of paymentMethods">{{ pm.method }}</option>
         </select>
        <br>

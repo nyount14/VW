@@ -38,13 +38,12 @@ ngOnInit() {
     this.error = error.message;
     });
 
-// this.envelopes = this.envelopesService.getEnvelopes()
-// this.envelopesService.envelopesChanged
-//   .subscribe(
-//     (envelopes: Envelope[]) => {
-//       this.envelopes = envelopes;
-//     }
-//   )
+  // this.envelopesService.envelopesChanged
+  //   .subscribe(
+  //     (envelopes: Envelope[]) => {
+  //       this.envelopes = envelopes;
+  //     }
+  //   )
 }
 
 fetchEnvelopes(){
@@ -60,14 +59,14 @@ fetchEnvelopes(){
 
 }
 
+onHandleError() {
+this.error = null
+}
+
 // onDeleteAll() {
 //   this.envelopesService.deleteEnvelopes().subscribe(() => {
 //     this.envelopes
 //   })
 // }
-
-onHandleError() {
-this.error = null
-}
 
 }

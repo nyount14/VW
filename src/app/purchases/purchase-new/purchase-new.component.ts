@@ -22,6 +22,7 @@ export class PurchaseNewComponent implements OnInit {
   selectedEnvelope: Envelope;
   envelopes: Envelope[];
   paymentMethods: PaymentMethod[];
+  default = ''
 
 
   purchases: Purchase[];
@@ -29,7 +30,7 @@ export class PurchaseNewComponent implements OnInit {
   category: string;
   date: string;
   description: string;
-  paymentmethod: string
+  paymentmethod: string;
   newPurchase: Purchase;
 
   constructor(private purchasesService: PurchasesService,
@@ -69,12 +70,11 @@ export class PurchaseNewComponent implements OnInit {
         this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
         this.selectedEnvelope.amount = this.newEnvelopeAmount
         this.envelopesService.updateEnvelope(this.selectedEnvelope.id, this.selectedEnvelope)
-        this.fetchEnvelopes();
+        // this.fetchEnvelopes();
         }
       }
       this.router.navigate(['/envelopes'])
       console.log(this.selectedEnvelope)
-      // this is pulling the envelopes.  start from here tomorrow to see how I can access the right envelope
     }
 
     fetchEnvelopes(){

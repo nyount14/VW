@@ -45,16 +45,7 @@ export class EnvelopesService {
       )
     }
 
-    overrideEnvelopes(envelopes: Envelope[]) {
-      this.envelopes = envelopes;
-      this.envelopesChanged.next(this.envelopes.slice());
-    }
 
-
-
-  // deleteEnvelopes(){
-  //   return this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/.json')
-  // }
 
   deleteEnvelope(id: string){
     for(let i = 0; i < this.envelopes.length; i++){
@@ -90,4 +81,15 @@ export class EnvelopesService {
       console.log("returned data after put request", responseData)
     });
   }
+
+  // overrideEnvelopes(envelopes: Envelope[]) {
+    //   this.envelopes = envelopes;
+    //   this.envelopesChanged.next(this.envelopes.slice());
+    // }
+
+
+
+  // deleteEnvelopes(){
+  //   return this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/.json')
+  // }
 }
