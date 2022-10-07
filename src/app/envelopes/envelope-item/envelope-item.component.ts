@@ -36,7 +36,7 @@ export class EnvelopeItemComponent implements OnInit {
 
   onDelete(){
     console.log(this.envelope.id)
-    this.envelopesService.deleteEnvelope(this.envelope.id)
+    // this.envelopesService.deleteEnvelope(this.envelope.id)
   }
 
 };

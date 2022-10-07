@@ -26,7 +26,7 @@ export class EnvelopeEditComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.envelope = this.envelopesService.getEnvelope(this.id);
+          // this.envelope = this.envelopesService.getEnvelope(this.id);
           this.editEnvelopeForm = new FormGroup({
             'category': new FormControl(this.envelope.category),
             'amount': new FormControl(this.envelope.amount)
@@ -41,7 +41,7 @@ export class EnvelopeEditComponent implements OnInit {
     this.amount = this.editEnvelopeForm.value.amount;
     console.log(this.amount)
     this.updatedEnvelope = new Envelope(this.category, this.amount);
-    this.envelopesService.updateEnvelope(this.envelope.id, this.updatedEnvelope);
+    // this.envelopesService.updateEnvelope(this.envelope.id, this.updatedEnvelope);
     this.router.navigate(['/envelopes'])
   }
 

@@ -39,9 +39,9 @@ export class PurchaseNewComponent implements OnInit {
               private router: Router ) { }
 
   ngOnInit() {
-    this.envelopesService.getEnvelopes().subscribe(envelopes => {
-      this.envelopes = envelopes
-    })
+    // this.envelopesService.getEnvelopes().subscribe(envelopes => {
+    //   this.envelopes = envelopes
+    // })
     this.paymentMethodsService.getPaymentMethods().subscribe(paymentMethods => {
       this.paymentMethods = paymentMethods
     })
@@ -69,7 +69,7 @@ export class PurchaseNewComponent implements OnInit {
         this.selectedEnvelope = this.envelopes[i]
         this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
         this.selectedEnvelope.amount = this.newEnvelopeAmount
-        this.envelopesService.updateEnvelope(this.selectedEnvelope.id, this.selectedEnvelope)
+        // this.envelopesService.updateEnvelope(this.selectedEnvelope.id, this.selectedEnvelope)
         // this.fetchEnvelopes();
         }
       }
@@ -78,10 +78,10 @@ export class PurchaseNewComponent implements OnInit {
     }
 
     fetchEnvelopes(){
-      this.envelopesService.getEnvelopes().subscribe(envelopes => {
-      this.envelopes = envelopes.reverse();
-      this.envelopesChanged.next(this.envelopes.slice());
-      });
+      // this.envelopesService.getEnvelopes().subscribe(envelopes => {
+      // this.envelopes = envelopes.reverse();
+      // this.envelopesChanged.next(this.envelopes.slice());
+      // });
 
     }
   }
