@@ -42,46 +42,46 @@ export class PurchaseNewComponent implements OnInit {
     // this.envelopesService.getEnvelopes().subscribe(envelopes => {
     //   this.envelopes = envelopes
     // })
-    this.paymentMethodsService.getPaymentMethods().subscribe(paymentMethods => {
-      this.paymentMethods = paymentMethods
-    })
+  //   this.paymentMethodsService.getPaymentMethods().subscribe(paymentMethods => {
+  //     this.paymentMethods = paymentMethods
+  //   })
   }
 
 
-  onSubmit(){
-    this.amount = this.newPurchaseForm.value.amount;
-    this.category = this.newPurchaseForm.value.category;
-    this.date = this.newPurchaseForm.value.date;
-    this.description = this.newPurchaseForm.value.description;
-    this.paymentmethod = this.newPurchaseForm.value.paymentmethod;
-    // this.newEnvelopeForm.reset();
-    console.log(this.newPurchaseForm)
-    this.newPurchase = new Purchase(
-      this.amount,
-      this.category,
-      this.date,
-      this.description,
-      this.paymentmethod);
-    this.purchasesService.addPurchase(this.newPurchase);
+  onSubmit() {
+  //   this.amount = this.newPurchaseForm.value.amount;
+  //   this.category = this.newPurchaseForm.value.category;
+  //   this.date = this.newPurchaseForm.value.date;
+  //   this.description = this.newPurchaseForm.value.description;
+  //   this.paymentmethod = this.newPurchaseForm.value.paymentmethod;
+  //   // this.newEnvelopeForm.reset();
+  //   console.log(this.newPurchaseForm)
+  //   this.newPurchase = new Purchase(
+  //     this.amount,
+  //     this.category,
+  //     this.date,
+  //     this.description,
+  //     this.paymentmethod);
+  //   this.purchasesService.addPurchase(this.newPurchase);
 
-    for(let i = 0; i < this.envelopes.length; i++){
-      if(this.envelopes[i].category == this.category){
-        this.selectedEnvelope = this.envelopes[i]
-        this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
-        this.selectedEnvelope.amount = this.newEnvelopeAmount
-        // this.envelopesService.updateEnvelope(this.selectedEnvelope.id, this.selectedEnvelope)
-        // this.fetchEnvelopes();
-        }
-      }
-      this.router.navigate(['/envelopes'])
-      console.log(this.selectedEnvelope)
-    }
+  //   for(let i = 0; i < this.envelopes.length; i++){
+  //     if(this.envelopes[i].category == this.category){
+  //       this.selectedEnvelope = this.envelopes[i]
+  //       this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
+  //       this.selectedEnvelope.amount = this.newEnvelopeAmount
+  //       // this.envelopesService.updateEnvelope(this.selectedEnvelope.id, this.selectedEnvelope)
+  //       // this.fetchEnvelopes();
+  //       }
+  //     }
+  //     this.router.navigate(['/envelopes'])
+  //     console.log(this.selectedEnvelope)
+  //   }
 
-    fetchEnvelopes(){
-      // this.envelopesService.getEnvelopes().subscribe(envelopes => {
-      // this.envelopes = envelopes.reverse();
-      // this.envelopesChanged.next(this.envelopes.slice());
-      // });
+  //   fetchEnvelopes(){
+  //     // this.envelopesService.getEnvelopes().subscribe(envelopes => {
+  //     // this.envelopes = envelopes.reverse();
+  //     // this.envelopesChanged.next(this.envelopes.slice());
+  //     // });
 
     }
   }

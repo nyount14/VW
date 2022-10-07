@@ -25,33 +25,33 @@ export class PurchasesService {
   // },
 
 
-  addPurchase(purchase: Purchase){
-    this.purchases.push(purchase);
-    this.purchasesChanged.next(this.purchases.slice());
-    this.http.post(
-      'https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json',
-      purchase
-    ).subscribe(responseData => {
-      console.log(responseData)
-    });
-   }
+//   addPurchase(purchase: Purchase){
+//     this.purchases.push(purchase);
+//     this.purchasesChanged.next(this.purchases.slice());
+//     this.http.post(
+//       'https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json',
+//       purchase
+//     ).subscribe(responseData => {
+//       console.log(responseData)
+//     });
+//    }
 
 
- getPurchases() {
-  // return this.purchases.slice();
-  return this.http
-    .get<Purchase>('https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json')
-    .pipe(map((responseObject) => {
-      const responseArray: Purchase[] = [];
-      for (const key in responseObject ) {
-        if (responseObject.hasOwnProperty(key))
-          responseArray.push({ ...responseObject[key], id: key });
-      }
-      this.purchases = responseArray;
-      return this.purchases
-    })
-    )
-  }
+//  getPurchases() {
+//   // return this.purchases.slice();
+//   return this.http
+//     .get<Purchase>('https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json')
+//     .pipe(map((responseObject) => {
+//       const responseArray: Purchase[] = [];
+//       for (const key in responseObject ) {
+//         if (responseObject.hasOwnProperty(key))
+//           responseArray.push({ ...responseObject[key], id: key });
+//       }
+//       this.purchases = responseArray;
+//       return this.purchases
+//     })
+//     )
+//   }
 
 //  getPurchase(index: number){
 //   return this.purchases[index]
@@ -68,20 +68,20 @@ export class PurchasesService {
 //   this.purchasesChanged.next(this.purchases.slice());
 //  }
 
- deletePurchase(id: string){
-  for(let i = 0; i < this.purchases.length; i++){
-    if(this.purchases[i].id === id){
-      this.purchases.splice(i, 1)
-      this.purchasesChanged.next(this.purchases.slice());
-    }
-    this.http.put(
-      'https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json',
-      this.purchases
-    ).subscribe(responseData => {
-      console.log("returned data after put request", responseData)
-    });
-    }
-}
+//  deletePurchase(id: string){
+//   for(let i = 0; i < this.purchases.length; i++){
+//     if(this.purchases[i].id === id){
+//       this.purchases.splice(i, 1)
+//       this.purchasesChanged.next(this.purchases.slice());
+//     }
+//     this.http.put(
+//       'https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json',
+//       this.purchases
+//     ).subscribe(responseData => {
+//       console.log("returned data after put request", responseData)
+//     });
+//     }
+// }
 
 // updatePurchase(id: string, newEnvelope: Envelope) {
   // this.envelopes[index] = newEnvelope;

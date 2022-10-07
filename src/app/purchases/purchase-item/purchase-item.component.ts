@@ -19,7 +19,7 @@ export class PurchaseItemComponent implements OnInit {
   }
 
   onDelete(){
-    this.purchasesService.deletePurchase(this.purchase.id);
+    // this.purchasesService.deletePurchase(this.purchase.id);
   }
 
 }

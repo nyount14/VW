@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpService } from 'src/app/http.service';
 import { Envelope } from 'src/app/models/envelope.model';
+import { EnvelopesService } from '../envelopes.service';
 
 @Component({
   selector: 'app-envelope-new',
@@ -17,8 +17,8 @@ export class EnvelopeNewComponent implements OnInit {
   amount: number;
   newEnvelope: Envelope;
 
-  constructor(private httpService: HttpService,
-              private router: Router) {}
+  constructor(private router: Router,
+              private envelopesService: EnvelopesService) {}
 
   ngOnInit(): void {
   }
@@ -27,7 +27,7 @@ export class EnvelopeNewComponent implements OnInit {
     this.category = this.newEnvelopeForm.value.category;
     this.amount = this.newEnvelopeForm.value.amount;
     this.newEnvelope = new Envelope(this.category, this.amount)
-    this.httpService.addEnvelopeToFB(this.newEnvelope);
+    this.envelopesService.addEnvelope(this.newEnvelope);
     this.router.navigate(['/envelopes'])
   }
 

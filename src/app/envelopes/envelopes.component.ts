@@ -1,17 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Envelope } from '../models/envelope.model';
 import { EnvelopesService } from './envelopes.service';
 import { Subject, Subscription } from 'rxjs';
-import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-envelopes',
   templateUrl: './envelopes.component.html',
   styleUrls: ['./envelopes.component.css']
 })
-export class EnvelopesComponent implements OnInit {
+export class EnvelopesComponent implements OnInit, OnDestroy {
 
   envelopesChanged = new Subject<Envelope[]>();
   envelopes: Envelope[];
@@ -26,21 +25,38 @@ export class EnvelopesComponent implements OnInit {
   constructor(private envelopesService: EnvelopesService,
               private router: Router,
               private http: HttpClient,
-              private httpService: HttpService) {}
+              ) {}
 
 ngOnInit() {
-  this.fetchEnvelopes();
-  }
-
-fetchEnvelopes() {
   this.subscription = this.envelopesService.envelopesChanged
-  .subscribe(
-    (envelopes: Envelope[]) => {
-      this.envelopes = envelopes;
-    }
-  );
-  this.envelopes = this.envelopesService.getEnvelopes();
+      .subscribe(
+        (envelopes: Envelope[]) => {
+          this.envelopes = envelopes;
+        }
+      );
+    this.subscription = this.envelopesService.setEnvelopes().subscribe(responseData => {
+      console.log(responseData)
+    })
 }
+
+ngOnDestroy() {
+  this.subscription.unsubscribe();
+}
+
+// this.fetchEnvelopes(){
+//   this.isFetching = true
+//   this.envelopesService.getEnvelopes().subscribe(envelopes => {
+//   this.isFetching = false;
+//   this.envelopes = envelopes.reverse();
+//   this.envelopesService.envelopesChanged.subscribe(changedEnvelops => {
+//     console.log(changedEnvelops)
+//   });
+//   }, error => {
+//     this.isFetching = false;
+//     this.error = error.message;
+// }
+
+
 
 deleteEnvelope(id: string){
   for(let i = 0; i < this.envelopes.length; i++){
@@ -67,18 +83,6 @@ deleteEnvelope(id: string){
   // )}
 
 
-  // this.fetchEnvelopes();
-  // this.isFetching = true
-  // this.envelopesService.getEnvelopes().subscribe(envelopes => {
-  // this.isFetching = false;
-  // this.envelopes = envelopes.reverse();
-  // this.envelopesService.envelopesChanged.subscribe(changedEnvelops => {
-  //   console.log(changedEnvelops)
-  // });
-  // }, error => {
-  //   this.isFetching = false;
-  //   this.error = error.message;
-  //   });
 
 
 
