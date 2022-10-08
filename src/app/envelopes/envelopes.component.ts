@@ -19,6 +19,7 @@ export class EnvelopesComponent implements OnInit, OnDestroy {
   isFetching = false
   error = ""
   subscription: Subscription;
+  setEnvelopesSubs: Subscription
 
 
 
@@ -34,27 +35,31 @@ ngOnInit() {
           this.envelopes = envelopes;
         }
       );
-    this.subscription = this.envelopesService.setEnvelopes().subscribe(responseData => {
-      console.log(responseData)
-    })
+  // this.setEnvelopesSubs = this.envelopesService.setEnvelopes().subscribe(responseData => {
+  //   console.log(responseData)
+  // })
+this.envelopesService.setEnvelopes();
 }
 
 ngOnDestroy() {
   this.subscription.unsubscribe();
 }
 
-// this.fetchEnvelopes(){
-//   this.isFetching = true
-//   this.envelopesService.getEnvelopes().subscribe(envelopes => {
-//   this.isFetching = false;
-//   this.envelopes = envelopes.reverse();
-//   this.envelopesService.envelopesChanged.subscribe(changedEnvelops => {
-//     console.log(changedEnvelops)
-//   });
-//   }, error => {
-//     this.isFetching = false;
-//     this.error = error.message;
+
+// fetchEnvelopes(){
+//   this.envelopesService.setEnvelopes()
 // }
+  // this.isFetching = true
+  // this.envelopesService.setEnvelopes().subscribe(envelopes => {
+  // this.isFetching = false;
+  // this.envelopes = envelopes;
+  // this.envelopesService.envelopesChanged.subscribe(changedEnvelops => {
+  //   console.log(changedEnvelops)
+  // });
+  // }, error => {
+  //   this.isFetching = false;
+  //   this.error = error.message;
+  // }
 
 
 

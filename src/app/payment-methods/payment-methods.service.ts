@@ -18,30 +18,37 @@ paymentMethodsChanged = new Subject<PaymentMethod[]>();
 private paymentMethods: PaymentMethod[] = []
 
 addPaymentMethod(paymentMethod: PaymentMethod){
-  this.paymentMethods.push(paymentMethod);
-  this.paymentMethodsChanged.next(this.paymentMethods.slice());
-  this.http.post(
-    'https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods.json',
-    paymentMethod
-  ).subscribe(responseData => {
+  // this.paymentMethods.push(paymentMethod);
+  // this.paymentMethodsChanged.next(this.paymentMethods.slice());
+  this.http
+    .post(
+      'https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods.json',
+      paymentMethod
+    ).subscribe(responseData => {
     console.log(responseData)
   });
+    this.setPaymentMethods();
   }
 
-  getPaymentMethods() {
-    // return this.envelopes.slice();
-    return this.http
-      .get<PaymentMethod>('https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods.json')
-      .pipe(map((responseObject) => {
-        const responseArray: PaymentMethod[] = [];
-        for (const key in responseObject ) {
-          if (responseObject.hasOwnProperty(key))
-            responseArray.push({ ...responseObject[key], id: key });
-        }
-        this.paymentMethods = responseArray;
-        return this.paymentMethods
-      })
-      )
+  setPaymentMethods() {
+    this.http
+      .get<PaymentMethod>(
+        'https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods.json'
+        )
+        .pipe(
+          map((responseObject) => {
+            const responseArray: PaymentMethod[] = [];
+            for (const key in responseObject ) {
+              if (responseObject.hasOwnProperty(key))
+              responseArray.push({ ...responseObject[key], id: key });
+            }
+            this.paymentMethods = responseArray;
+            this.paymentMethodsChanged.next(this.paymentMethods.slice());
+            return responseArray
+        })
+        ).subscribe(paymentMethods => {
+          console.log(paymentMethods)
+        })
     }
 
   deletePaymentMethod(id: string){

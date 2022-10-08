@@ -16,42 +16,42 @@ export class PurchasesService {
   purchasesChanged = new Subject<Purchase[]>();
   private purchases: Purchase[] = []
 
-  // {
-  //   amount: 50,
-  //   category: 'Fuel',
-  //   date: '1/12/2022',
-  //   description: 'mapco',
-  //   paymentmethod: 'cash'
-  // },
+
+  addPurchase(purchase: Purchase) {
+    // this.purchases.push(purchase);
+    // this.purchasesChanged.next(this.purchases.slice());
+    this.http
+      .post(
+        'https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json',
+      purchase
+    ).subscribe(responseData => {
+      console.log(responseData)
+    });
+    this.setPurchases();
+   }
 
 
-//   addPurchase(purchase: Purchase){
-//     this.purchases.push(purchase);
-//     this.purchasesChanged.next(this.purchases.slice());
-//     this.http.post(
-//       'https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json',
-//       purchase
-//     ).subscribe(responseData => {
-//       console.log(responseData)
-//     });
-//    }
-
-
-//  getPurchases() {
-//   // return this.purchases.slice();
-//   return this.http
-//     .get<Purchase>('https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json')
-//     .pipe(map((responseObject) => {
-//       const responseArray: Purchase[] = [];
-//       for (const key in responseObject ) {
-//         if (responseObject.hasOwnProperty(key))
-//           responseArray.push({ ...responseObject[key], id: key });
-//       }
-//       this.purchases = responseArray;
-//       return this.purchases
-//     })
-//     )
-//   }
+ setPurchases() {
+  // return this.purchases.slice();
+  this.http
+    .get<Purchase>(
+      'https://virtualenvelopes-default-rtdb.firebaseio.com/purchases.json'
+      )
+      .pipe(
+        map((responseObject) => {
+          const responseArray: Purchase[] = [];
+          for (const key in responseObject ) {
+            if (responseObject.hasOwnProperty(key))
+            responseArray.push({ ...responseObject[key], id: key });
+      }
+      this.purchases = responseArray;
+      this.purchasesChanged.next(this.purchases.slice());
+      return this.purchases
+    })
+    ).subscribe(purchases => {
+      console.log(purchases)
+    })
+  }
 
 //  getPurchase(index: number){
 //   return this.purchases[index]

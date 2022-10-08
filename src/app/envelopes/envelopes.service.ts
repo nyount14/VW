@@ -18,19 +18,18 @@ export class EnvelopesService {
   }
 
   addEnvelope(envelope: Envelope) {
-    this.envelopes.push(envelope);
-    this.envelopesChanged.next(this.envelopes.slice());
+    // this.envelopes.push(envelope);
+    // this.envelopesChanged.next(this.envelopes.slice());
     this.http
       .post(
         'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
-        this.envelopes
-      ).subscribe(responseData => {
-        console.log(responseData)
-      });
+        envelope
+      ).subscribe(responseData => {});
+    this.setEnvelopes();
   }
 
   setEnvelopes() {
-      return this.http
+      this.http
         .get<Envelope>(
           'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json'
         )
@@ -42,9 +41,14 @@ export class EnvelopesService {
               responseArray.push({ ...responseObject[key], id: key });
             }
             this.envelopes = responseArray;
+            console.log(this.envelopes)
             this.envelopesChanged.next(this.envelopes.slice());
+            return responseArray
         })
-        )
+        ).subscribe(envelopes => {
+          console.log(envelopes)
+        })
+        // this.envelopesChanged.next(this.envelopes.slice());
       }
 
 
