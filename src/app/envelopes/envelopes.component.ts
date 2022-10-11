@@ -19,7 +19,7 @@ export class EnvelopesComponent implements OnInit, OnDestroy {
   isFetching = false
   error = ""
   subscription: Subscription;
-  setEnvelopesSubs: Subscription
+  // setEnvelopesSubs: Subscription
 
 
 
@@ -38,8 +38,8 @@ ngOnInit() {
   // this.setEnvelopesSubs = this.envelopesService.setEnvelopes().subscribe(responseData => {
   //   console.log(responseData)
   // })
-this.envelopesService.setEnvelopes();
-}
+  this.envelopesService.setEnvelopes();
+  }
 
 ngOnDestroy() {
   this.subscription.unsubscribe();
@@ -47,36 +47,41 @@ ngOnDestroy() {
 
 
 // fetchEnvelopes(){
-//   this.envelopesService.setEnvelopes()
+
 // }
-  // this.isFetching = true
-  // this.envelopesService.setEnvelopes().subscribe(envelopes => {
-  // this.isFetching = false;
-  // this.envelopes = envelopes;
-  // this.envelopesService.envelopesChanged.subscribe(changedEnvelops => {
-  //   console.log(changedEnvelops)
-  // });
-  // }, error => {
-  //   this.isFetching = false;
-  //   this.error = error.message;
-  // }
+
+// fetchEnvelopes(){
+//   this.envelopesService.setEnvelopes()
+//   this.isFetching = true
+//   this.envelopesService.setEnvelopes().subscribe(envelopes => {
+//   this.isFetching = false;
+//   this.envelopes = envelopes;
+//   this.envelopesService.envelopesChanged.subscribe(changedEnvelops => {
+//     console.log(changedEnvelops)
+//   });
+//   }, error => {
+//     this.isFetching = false;
+//     this.error = error.message;
+//   }
+// }
 
 
 
-deleteEnvelope(id: string){
-  for(let i = 0; i < this.envelopes.length; i++){
-    if(this.envelopes[i].id === id){
-      this.envelopes.splice(i, 1)
-      this.envelopesChanged.next(this.envelopes.slice());
-    }
-    // this.http.put(
-    //   'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
-    //   this.envelopes
-    // ).subscribe(responseData => {
-    //   console.log("returned data after put request", responseData)
-    // });
-    }
-}
+
+// deleteEnvelope(id: string){
+//   for(let i = 0; i < this.envelopes.length; i++){
+//     if(this.envelopes[i].id === id){
+//       this.envelopes.splice(i, 1)
+//       this.envelopesChanged.next(this.envelopes.slice());
+//     }
+//     // this.http.put(
+//     //   'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
+//     //   this.envelopes
+//     // ).subscribe(responseData => {
+//     //   console.log("returned data after put request", responseData)
+//     // });
+//     }
+// }
 
 
   //   this.envelopes = currentEnvelopes
