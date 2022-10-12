@@ -19,7 +19,8 @@ export class PurchaseNewComponent implements OnInit, OnDestroy {
   @ViewChild('f') newPurchaseForm: NgForm;
   envelopesChanged = new Subject<Envelope[]>();
   newEnvelopeAmount: number
-  selectedEnvelope: Envelope;
+  newEnvelope: Envelope
+  oldEnvelope: Envelope;
   envelopes: Envelope[];
   paymentMethods: PaymentMethod[];
   default = ''
@@ -48,10 +49,10 @@ export class PurchaseNewComponent implements OnInit, OnDestroy {
         }
       );
     this.envelopesService.setEnvelopes();
-    this.paymentMethodSub = this.envelopesService.envelopesChanged
+    this.paymentMethodSub = this.paymentMethodsService.paymentMethodsChanged
     .subscribe(
-      (envelopes: Envelope[]) => {
-        this.envelopes = envelopes;
+      (paymentMethods: PaymentMethod[]) => {
+        this.paymentMethods = paymentMethods;
       }
     );
     this.paymentMethodsService.setPaymentMethods();
@@ -87,15 +88,24 @@ export class PurchaseNewComponent implements OnInit, OnDestroy {
 
     for(let i = 0; i < this.envelopes.length; i++){
       if(this.envelopes[i].category == this.category){
-        this.selectedEnvelope = this.envelopes[i]
-        this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
-        this.selectedEnvelope.amount = this.newEnvelopeAmount
+        this.newEnvelopeAmount = this.envelopes[i].amount - +this.amount
+        this.newEnvelope = new Envelope(
+          this.envelopes[i].category,
+          this.newEnvelopeAmount);
+        this.envelopesService.addEnvelope(this.newEnvelope);
+        this.oldEnvelope = this.envelopes[i]
+        this.envelopesService.deleteEnvelope1(this.oldEnvelope.id)
+        this.envelopeSub
+
+        // this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
+        // this.newEnvelope.amount = this.newEnvelopeAmount
         // this.envelopesService.updateEnvelope(this.selectedEnvelope.id, this.selectedEnvelope)
         // this.fetchEnvelopes();
+
         }
       }
       this.router.navigate(['/envelopes'])
-      console.log(this.selectedEnvelope)
+      // console.log(this.selectedEnvelope)
     }
 
     fetchEnvelopes(){

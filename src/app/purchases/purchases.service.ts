@@ -43,13 +43,13 @@ export class PurchasesService {
           for (const key in responseObject ) {
             if (responseObject.hasOwnProperty(key))
             responseArray.push({ ...responseObject[key], id: key });
-      }
-      this.purchases = responseArray;
-      this.purchasesChanged.next(this.purchases.slice());
-      return this.purchases
-    })
-    ).subscribe(purchases => {
-      console.log(purchases)
+          }
+          return responseArray
+      })
+      ).subscribe(responseArray => {
+      console.log(responseArray)
+      this.purchases = responseArray
+      this.purchasesChanged.next(this.purchases.slice())
     })
   }
 

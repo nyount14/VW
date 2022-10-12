@@ -38,7 +38,7 @@ ngOnInit() {
   // this.setEnvelopesSubs = this.envelopesService.setEnvelopes().subscribe(responseData => {
   //   console.log(responseData)
   // })
-  this.envelopesService.setEnvelopes();
+  this.envelopesService.setEnvelopes()
   }
 
 ngOnDestroy() {

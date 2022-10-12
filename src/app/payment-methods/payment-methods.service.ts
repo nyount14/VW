@@ -42,14 +42,13 @@ addPaymentMethod(paymentMethod: PaymentMethod){
               if (responseObject.hasOwnProperty(key))
               responseArray.push({ ...responseObject[key], id: key });
             }
-            this.paymentMethods = responseArray;
-            this.paymentMethodsChanged.next(this.paymentMethods.slice());
             return responseArray
         })
-        ).subscribe(paymentMethods => {
-          console.log(paymentMethods)
+        ).subscribe(responseArray => {
+          console.log(responseArray)
+          this.paymentMethods = responseArray
+          this.paymentMethodsChanged.next(this.paymentMethods.slice())
         })
-        this.paymentMethodsChanged.next(this.paymentMethods.slice())
     }
 
     deletePaymentMethod(id: string){
