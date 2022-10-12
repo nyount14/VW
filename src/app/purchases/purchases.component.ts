@@ -20,25 +20,24 @@ export class PurchasesComponent implements OnInit {
               private purchasesService: PurchasesService,
               private route: ActivatedRoute) {}
 
-    ngOnInit() {}
-    // this.purchasesService.getPurchases().subscribe(purchases => {
-    //   this.purchases = purchases
-    // })
-    // this.purchasesService.purchasesChanged
-    //   .subscribe(
-    //     (purchases: Purchase[]) => {
-    //     this.purchases = purchases;
-    //     }
-    //   )
-    //   this.route.params
-    //       .subscribe(
-    //         (params: Params) => {
-    //           this.filterData = params['id'];
-    //           console.log(this.filterData)
-    //           }
-    //         )
-    //       }
-        }
+    ngOnInit() {
+      this.purchasesService.setPurchases()
+      this.purchasesService.purchasesChanged
+        .subscribe(
+          (purchases: Purchase[]) => {
+          this.purchases = purchases;
+          }
+        )
+        this.route.params
+            .subscribe(
+              (params: Params) => {
+                this.filterData = params['id'];
+                console.log(this.filterData)
+                }
+              )
+            }
+          }
+
 
 
 

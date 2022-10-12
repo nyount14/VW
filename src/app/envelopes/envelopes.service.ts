@@ -51,6 +51,18 @@ export class EnvelopesService {
         this.envelopesChanged.next(this.envelopes.slice());
       }
 
+  deleteEnvelope1(id: string){
+    for(let i = 0; i < this.envelopes.length; i++){
+        if(this.envelopes[i].id === id){
+          this.envelopes.splice(i, 1)
+          this.envelopesChanged.next(this.envelopes.slice());
+        }
+      }
+    this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes/'+id+'.json')
+    .subscribe();
+    this.envelopesChanged.next(this.envelopes.slice());
+  }
+
 
       // deleteEnvelope(id: string){
       //   for(let i = 0; i < this.envelopes.length; i++){
@@ -67,12 +79,7 @@ export class EnvelopesService {
       //     }
       // }
 
-  deleteEnvelope1(id: string){
-    this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes/'+id+'.json')
-    .subscribe();
-    this.setEnvelopes();
-    this.envelopesChanged.next(this.envelopes.slice());
-  }
+
 
   getEnvelopes() {
     return this.envelopes.slice();

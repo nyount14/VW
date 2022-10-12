@@ -46,10 +46,10 @@
 
        <label>Which payment method are you using to make the purchase?</label>
        <select
-         type="text"
          class="form-control"
          ngModel
          name="paymentmethod"
+         value=""
          required>
          <option [defaultSelected]=true [value]="default" >{{default}}</option>
          <option *ngFor ="let pm of paymentMethods">{{ pm.method }}</option>

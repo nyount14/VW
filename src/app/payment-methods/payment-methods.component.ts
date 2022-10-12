@@ -1,6 +1,5 @@
-
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { PaymentMethod } from '../models/paymentmethod.model';
@@ -12,7 +11,7 @@ import { PaymentMethodsService } from './payment-methods.service';
   templateUrl: './payment-methods.component.html',
   styleUrls: ['./payment-methods.component.css']
 })
-export class PaymentMethodsComponent implements OnInit {
+export class PaymentMethodsComponent implements OnInit, OnDestroy {
 
   paymentMethodsChanged = new Subject<PaymentMethod[]>();
   paymentMethods: PaymentMethod[];
@@ -57,6 +56,9 @@ export class PaymentMethodsComponent implements OnInit {
     //   )
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
   // fetchPaymentMethods() {
   //   this.paymentMethodsService.getPaymentMethods().subscribe(paymentMethods => {
   //     this.isFetching = false;
