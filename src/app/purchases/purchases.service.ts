@@ -52,8 +52,9 @@ export class PurchasesService {
   }
 
   deletePurchase(id: string){
-    this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes/'+id+'.json')
+    this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/purchases/'+id+'.json')
     .subscribe(responseData => {
+      console.log(responseData)
       for(let i = 0; i < this.purchases.length; i++){
         if(this.purchases[i].id === id){
           this.purchases.splice(i, 1)
