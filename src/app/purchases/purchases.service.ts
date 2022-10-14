@@ -54,15 +54,15 @@ export class PurchasesService {
   }
 
   deletePurchase(id: string){
-    for(let i = 0; i < this.purchases.length; i++){
-        if(this.purchases[i].id === id){
-          this.purchases.splice(i, 1)
-          this.purchasesChanged.next(this.purchases.slice());
-        }
-      }
     this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes/'+id+'.json')
     .subscribe();
-    this.purchasesChanged.next(this.purchases.slice());
+    // this.purchasesChanged.next(this.purchases.slice());
+    for(let i = 0; i < this.purchases.length; i++){
+      if(this.purchases[i].id === id){
+        this.purchases.splice(i, 1)
+        this.purchasesChanged.next(this.purchases.slice());
+      }
+    }
   }
 
 //  getPurchase(index: number){

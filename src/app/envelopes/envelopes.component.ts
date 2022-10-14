@@ -35,9 +35,6 @@ ngOnInit() {
           this.envelopes = envelopes;
         }
       );
-  // this.setEnvelopesSubs = this.envelopesService.setEnvelopes().subscribe(responseData => {
-  //   console.log(responseData)
-  // })
   this.envelopesService.setEnvelopes()
   }
 
@@ -45,10 +42,6 @@ ngOnDestroy() {
   this.subscription.unsubscribe();
 }
 
-
-// fetchEnvelopes(){
-
-// }
 
 // fetchEnvelopes(){
 //   this.envelopesService.setEnvelopes()
@@ -66,59 +59,6 @@ ngOnDestroy() {
 // }
 
 
-
-
-// deleteEnvelope(id: string){
-//   for(let i = 0; i < this.envelopes.length; i++){
-//     if(this.envelopes[i].id === id){
-//       this.envelopes.splice(i, 1)
-//       this.envelopesChanged.next(this.envelopes.slice());
-//     }
-//     // this.http.put(
-//     //   'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json',
-//     //   this.envelopes
-//     // ).subscribe(responseData => {
-//     //   console.log("returned data after put request", responseData)
-//     // });
-//     }
-// }
-
-
-  //   this.envelopes = currentEnvelopes
-  //   this.envelopesService.envelopesChanged.subscribe(changedEnvelops => {
-  //     console.log(changedEnvelops)
-  //     this.envelopes = changedEnvelops
-  //   });
-  // }
-  // )}
-
-
-
-
-
-
-
-  // this.envelopesService.envelopesChanged
-  //   .subscribe(
-  //     (envelopes: Envelope[]) => {
-  //       this.envelopes = envelopes;
-  //     }
-  //   )
-}
-
-// fetchEnvelopes(){
-//   this.httpService.getEnvelopesFromFB().subscribe(envelopes => {
-//   console.log(envelopes)
-//   this.isFetching = false;
-//   this.envelopes = envelopes.reverse();
-//   this.envelopesChanged.next(this.envelopes.slice());
-//   }, error => {
-//     this.isFetching = false;
-//     this.error = error.message;
-//   });
-
-// }
-
 // onHandleError() {
 // this.error = null
 // }
@@ -129,4 +69,4 @@ ngOnDestroy() {
 //   })
 // }
 
-// }
+}

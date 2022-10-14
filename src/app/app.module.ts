@@ -12,18 +12,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { EnvelopesComponent } from './envelopes/envelopes.component';
 import { EnvelopesService } from './envelopes/envelopes.service';
-import { EnvelopeDetailComponent } from './envelopes/envelope-detail/envelope-detail.component';
 import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.component';
 import { PaymentMethodsService } from './payment-methods/payment-methods.service';
 import { PaymentMethodNewComponent } from './payment-methods/payment-method-new/payment-method-new.component';
 import { EnvelopeItemComponent } from './envelopes/envelope-item/envelope-item.component';
 import { PurchasesComponent } from './purchases/purchases.component';
-import { PurchaseDetailComponent } from './purchases/purchase-detail/purchase-detail.component';
 import { PurchaseNewComponent } from './purchases/purchase-new/purchase-new.component';
 import { PurchaseItemComponent } from './purchases/purchase-item/purchase-item.component';
 import { PurchasesService } from './purchases/purchases.service';
 import { FilterPipe } from './filter.pipe';
-import { PaymentMethodDetailComponent } from './payment-methods/payment-method-detail/payment-method-detail.component';
 import { PaymentMethodItemComponent } from './payment-methods/payment-method-item/payment-method-item.component';
 import { EnvelopeEditComponent } from './envelopes/envelope-edit/envelope-edit.component';
 import { HttpClientModule } from '@angular/common/http'
@@ -36,17 +33,14 @@ import { HttpClientModule } from '@angular/common/http'
     NavbarComponent,
     PaymentMethodsComponent,
     EnvelopesComponent,
-    EnvelopeDetailComponent,
     EnvelopeNewComponent,
     EnvelopeEditComponent,
     PaymentMethodNewComponent,
     EnvelopeItemComponent,
     PurchasesComponent,
-    PurchaseDetailComponent,
     PurchaseNewComponent,
     PurchaseItemComponent,
     FilterPipe,
-    PaymentMethodDetailComponent,
     PaymentMethodItemComponent,
   ],
   imports: [

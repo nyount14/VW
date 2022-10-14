@@ -76,8 +76,7 @@ export class PurchaseNewComponent implements OnInit, OnDestroy {
     this.date = this.newPurchaseForm.value.date;
     this.description = this.newPurchaseForm.value.description;
     this.paymentmethod = this.newPurchaseForm.value.paymentmethod;
-    // this.newEnvelopeForm.reset();
-    console.log(this.newPurchaseForm)
+
     this.newPurchase = new Purchase(
       this.amount,
       this.category,
@@ -96,23 +95,9 @@ export class PurchaseNewComponent implements OnInit, OnDestroy {
         this.oldEnvelope = this.envelopes[i]
         this.envelopesService.deleteEnvelope1(this.oldEnvelope.id)
         this.envelopeSub
-
-        // this.newEnvelopeAmount = this.selectedEnvelope.amount - +this.amount
-        // this.newEnvelope.amount = this.newEnvelopeAmount
-        // this.envelopesService.updateEnvelope(this.selectedEnvelope.id, this.selectedEnvelope)
-        // this.fetchEnvelopes();
-
         }
       }
       this.router.navigate(['/envelopes'])
-      // console.log(this.selectedEnvelope)
     }
 
-    fetchEnvelopes(){
-      // this.envelopesService.getEnvelopes().subscribe(envelopes => {
-      // this.envelopes = envelopes.reverse();
-      // this.envelopesChanged.next(this.envelopes.slice());
-      // });
-
-    }
   }

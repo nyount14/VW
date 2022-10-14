@@ -63,42 +63,4 @@ addPaymentMethod(paymentMethod: PaymentMethod){
       this.paymentMethodsChanged.next(this.paymentMethods.slice());
     }
 
-    // deletePaymentMethod(id: string){
-    //   this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods/'+id+'.json')
-    //   .subscribe();
-    //   this.setPaymentMethods();
-    //   this.paymentMethodsChanged.next(this.paymentMethods.slice());
-    // }
-
-  // deletePaymentMethod(id: string){
-  //   for(let i = 0; i < this.paymentMethods.length; i++){
-  //     if(this.paymentMethods[i].id === id){
-  //       this.paymentMethods.splice(i, 1)
-  //       this.paymentMethodsChanged.next(this.paymentMethods.slice());
-  //     }
-  //     this.http.put(
-  //       'https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods.json',
-  //       this.paymentMethods
-  //     ).subscribe(responseData => {
-  //       console.log("returned data after put request", responseData)
-  //     });
-  //     }
-  // }
-
-//  getPaymentMethods() {
-//   return this.paymentMethods.slice();
-//  }
-
-
-//  getPaymentMethod(index: number){
-//    return this.paymentMethods[index]
-//  }
-
-
-
-//  deletePaymentMethod(index: number){
-//   this.paymentMethods.splice(index, 1)
-//   this.paymentMethodsChanged.next(this.paymentMethods.slice());
-//  }
-
 }

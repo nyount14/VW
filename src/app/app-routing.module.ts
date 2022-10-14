@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EnvelopeDetailComponent } from './envelopes/envelope-detail/envelope-detail.component';
 import { EnvelopeEditComponent } from './envelopes/envelope-edit/envelope-edit.component';
 import { EnvelopeNewComponent } from './envelopes/envelope-new/envelope-new.component';
 import { EnvelopesComponent } from './envelopes/envelopes.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { PaymentMethodDetailComponent } from './payment-methods/payment-method-detail/payment-method-detail.component';
 import { PaymentMethodNewComponent } from './payment-methods/payment-method-new/payment-method-new.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
-import { PurchaseDetailComponent } from './purchases/purchase-detail/purchase-detail.component';
 import { PurchaseNewComponent } from './purchases/purchase-new/purchase-new.component';
 import { PurchasesComponent } from './purchases/purchases.component';
 
@@ -23,7 +20,6 @@ const routes: Routes = [
   { path: 'purchases/:id', component: PurchasesComponent },
   { path: 'paymentmethods', component: PaymentMethodsComponent },
   { path: 'paymentmethods/new', component: PaymentMethodNewComponent },
-  { path: 'paymentmethods/:id', component: PaymentMethodDetailComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
