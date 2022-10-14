@@ -24,12 +24,12 @@ export class EnvelopesService {
         envelope
       ).subscribe(responseData => {
         console.log(responseData)
+        this.setEnvelopes();
       });
-    this.setEnvelopes();
   }
 
   setEnvelopes() {
-    return this.http
+    this.http
       .get<Envelope>(
         'https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes.json'
       )
@@ -50,20 +50,22 @@ export class EnvelopesService {
     }
 
     deleteEnvelope1(id: string){
-      for(let i = 0; i < this.envelopes.length; i++){
-          if(this.envelopes[i].id === id){
-            this.envelopes.splice(i, 1)
-            this.envelopesChanged.next(this.envelopes.slice());
-          }
-        }
       this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/envelopes/'+id+'.json')
-      .subscribe();
+        .subscribe(responseData => {
+          console.log(responseData)
+          for(let i = 0; i < this.envelopes.length; i++){
+            if(this.envelopes[i].id === id){
+              this.envelopes.splice(i, 1)
+              this.envelopesChanged.next(this.envelopes.slice());
+            }
+          }
+        });
       // this.envelopesChanged.next(this.envelopes.slice());
     }
 
 
-  getEnvelopes() {
-    return this.envelopes.slice();
-  }
+  // getEnvelopes() {
+  //   return this.envelopes.slice();
+  // }
 
 }

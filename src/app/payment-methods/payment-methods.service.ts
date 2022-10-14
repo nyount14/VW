@@ -18,17 +18,15 @@ paymentMethodsChanged = new Subject<PaymentMethod[]>();
 private paymentMethods: PaymentMethod[] = []
 
 addPaymentMethod(paymentMethod: PaymentMethod){
-  // this.paymentMethods.push(paymentMethod);
-  // this.paymentMethodsChanged.next(this.paymentMethods.slice());
   this.http
     .post(
       'https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods.json',
       paymentMethod
     ).subscribe(responseData => {
-    console.log(responseData)
-  });
-    this.setPaymentMethods();
-  }
+      console.log(responseData)
+      this.setPaymentMethods();
+    });
+}
 
   setPaymentMethods() {
     this.http
@@ -49,18 +47,18 @@ addPaymentMethod(paymentMethod: PaymentMethod){
           this.paymentMethods = responseArray
           this.paymentMethodsChanged.next(this.paymentMethods.slice())
         })
-    }
+      }
 
     deletePaymentMethod(id: string){
-      for(let i = 0; i < this.paymentMethods.length; i++){
+      this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods/'+id+'.json')
+      .subscribe(responseData => {
+        for(let i = 0; i < this.paymentMethods.length; i++){
           if(this.paymentMethods[i].id === id){
             this.paymentMethods.splice(i, 1)
             this.paymentMethodsChanged.next(this.paymentMethods.slice());
           }
         }
-      this.http.delete('https://virtualenvelopes-default-rtdb.firebaseio.com/paymentmethods/'+id+'.json')
-      .subscribe();
-      this.paymentMethodsChanged.next(this.paymentMethods.slice());
-    }
+      });
 
+      }
 }

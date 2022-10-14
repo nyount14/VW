@@ -56,12 +56,6 @@ export class PurchaseNewComponent implements OnInit, OnDestroy {
       }
     );
     this.paymentMethodsService.setPaymentMethods();
-    // this.envelopesService.getEnvelopes().subscribe(envelopes => {
-    //   this.envelopes = envelopes
-    // })
-    // this.paymentMethodsService.getPaymentMethods().subscribe(paymentMethods => {
-    //   this.paymentMethods = paymentMethods
-    // })
   }
 
   ngOnDestroy() {
