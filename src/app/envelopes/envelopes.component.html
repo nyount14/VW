@@ -1,11 +1,11 @@
-<div class="container" style="margin-top:20px;">
-  <h1>All Envelopes</h1>
+<div class="container" style="margin-top:40px;">
+  <h1 style= "text-align:center">All Envelopes</h1>
   <!-- <button (click)="fetchEnvelopes()">Fetch Envelopes</button> -->
 
   <div class="row">
     <div class="col-xs-12">
       <p *ngIf="envelopes.length < 1 && !isFetching">Please create an Envelope</p>
-      <div *ngIf="envelopes.length >= 1 && !isFetching">
+      <div *ngIf="envelopes.length >= 1 && !isFetching" style="margin-top:35px;">
         <app-envelope-item
         *ngFor="let envelopeEl of envelopes; let i = index"
         [envelope]="envelopeEl"
