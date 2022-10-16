@@ -31,7 +31,7 @@ export class EnvelopeItemComponent implements OnInit {
   }
 
   onEdit(){
-    this.router.navigate(['/envelopes', this.index])
+    this.router.navigate(['/envelopes', this.envelope.category])
   }
 
   onDelete(){

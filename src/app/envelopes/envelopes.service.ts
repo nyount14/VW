@@ -11,6 +11,7 @@ export class EnvelopesService {
 
   envelopesChanged = new Subject<Envelope[]>();
   private envelopes: Envelope[] = []
+  editedEnvelope: Envelope
 
   constructor(private http: HttpClient,
               private router: Router){
@@ -44,7 +45,7 @@ export class EnvelopesService {
       })
       ).subscribe(responseArray => {
         console.log(responseArray)
-        this.envelopes = responseArray
+        this.envelopes = responseArray.reverse();
         this.envelopesChanged.next(this.envelopes.slice());
       });
     }
@@ -63,6 +64,15 @@ export class EnvelopesService {
       // this.envelopesChanged.next(this.envelopes.slice());
     }
 
+
+  getEnvelope(category: string) {
+    for(let i = 0; i < this.envelopes.length; i++){
+      if(this.envelopes[i].category === category){
+        this.editedEnvelope = this.envelopes[i];
+      }
+    }
+    return this.editedEnvelope;
+  }
 
   // getEnvelopes() {
   //   return this.envelopes.slice();

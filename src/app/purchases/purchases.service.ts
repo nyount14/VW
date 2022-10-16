@@ -46,7 +46,7 @@ export class PurchasesService {
       })
       ).subscribe(responseArray => {
         console.log(responseArray)
-        this.purchases = responseArray
+        this.purchases = responseArray.reverse();
         this.purchasesChanged.next(this.purchases.slice())
     });
   }
